@@ -48,11 +48,11 @@ fun Canvas.drawLineExtendArcRot(scale : Float, w : Float, h : Float, paint : Pai
             for (j in 0..1) {
                 drawXY(0f, 0f) {
                     rotate(deg * j * dsc(2))
-                    drawLine(0f, 0f, 0f, -size * dsc(0), paint)
+                    drawLine(0f, 0f, size * dsc(0), 0f, paint)
                 }
             }
         }
-        drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f - deg * dsc(2),deg * dsc(2), true, paint)
+        drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f + deg * dsc(2),-deg * dsc(2), true, paint)
     }
 }
 
