@@ -8,6 +8,7 @@ import android.graphics.Canvas
 import android.graphics.RectF
 import android.content.Context
 import android.app.Activity
+import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -62,4 +63,20 @@ fun Canvas.drawLEARNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.strokeCap = Paint.Cap.ROUND
     drawLineExtendArcRot(scale, w, h, paint)
+}
+
+class LineExtendArcRotView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
