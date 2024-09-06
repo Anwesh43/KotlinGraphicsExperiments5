@@ -191,4 +191,27 @@ class LineExtendArcRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineExtendArcRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lear : LineExtendArcRot = LineExtendArcRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lear.draw(canvas, paint)
+            animator.animate {
+                lear.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lear.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
