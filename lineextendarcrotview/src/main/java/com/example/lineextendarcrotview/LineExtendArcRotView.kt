@@ -216,4 +216,13 @@ class LineExtendArcRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineExtendArcRotView {
+            val view : LineExtendArcRotView = LineExtendArcRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
