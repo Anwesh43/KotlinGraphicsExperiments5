@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "KotlinGraphicsExperiments5"
 include(":app")
 include(":lineextendarcrotview")
+include(":linebreakarcrotview")
