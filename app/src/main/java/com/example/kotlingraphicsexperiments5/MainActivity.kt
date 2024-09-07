@@ -12,11 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.lineextendarcrotview.LineExtendArcRotView
+import com.example.linebreakarcrotview.LineBreakArcRotView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LineExtendArcRotView.create(this)
+        LineBreakArcRotView.create(this)
     }
 }
