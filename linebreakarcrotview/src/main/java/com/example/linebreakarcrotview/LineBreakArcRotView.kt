@@ -45,7 +45,7 @@ fun Canvas.drawLineBreakArcRot(scale : Float, w : Float, h : Float, paint : Pain
             drawXY(0f, 0f) {
                 scale(1f, 1f - 2 * j)
                 rotate(-rot * dsc(2))
-                drawArc(RectF(-size, -size / 2, 0f, size), 0f, 180f * dsc(0), false, paint)
+                drawArc(RectF(-size, -size / 2, 0f, size / 2), 0f, 180f * dsc(0), false, paint)
             }
         }
         drawLine(0f, 0f, size * dsc(1), 0f, paint)
