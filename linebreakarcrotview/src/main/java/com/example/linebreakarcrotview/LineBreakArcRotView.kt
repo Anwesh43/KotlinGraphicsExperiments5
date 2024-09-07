@@ -213,4 +213,13 @@ class LineBreakArcRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineBreakArcRotView {
+            val view : LineBreakArcRotView = LineBreakArcRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
