@@ -187,4 +187,27 @@ class ArcIntoLineDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcIntoLineDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val aidl : ArcIntoLineDown = ArcIntoLineDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aidl.draw(canvas, paint)
+            animator.animate {
+                aidl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aidl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
