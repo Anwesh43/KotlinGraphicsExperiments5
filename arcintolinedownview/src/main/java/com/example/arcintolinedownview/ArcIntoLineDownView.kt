@@ -60,3 +60,19 @@ fun Canvas.drawAILDNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     drawArcIntoLineDown(scale, w, h, paint)
 }
+
+class ArcIntoLineDownView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(evet : MotionEvent) : Boolean {
+        when (evet.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
