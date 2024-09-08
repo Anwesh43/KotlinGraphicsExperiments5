@@ -212,4 +212,13 @@ class ArcIntoLineDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcIntoLineDownView {
+            val view : ArcIntoLineDownView = ArcIntoLineDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
