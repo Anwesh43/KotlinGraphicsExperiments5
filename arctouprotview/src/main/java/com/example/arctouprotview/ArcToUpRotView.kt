@@ -186,4 +186,27 @@ class ArcToUpRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcToUpRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val atur : ArcToUpRot = ArcToUpRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            atur.draw(canvas, paint)
+            animator.animate {
+                atur.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            atur.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
