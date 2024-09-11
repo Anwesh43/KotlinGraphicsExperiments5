@@ -187,4 +187,27 @@ class LineDoubleArcIntoView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDoubleArcIntoView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ldai : LineDoubleArcInto = LineDoubleArcInto(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldai.draw(canvas, paint)
+            animator.animate {
+                ldai.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldai.startUdpating {
+                animator.start()
+            }
+        }
+    }
 }
