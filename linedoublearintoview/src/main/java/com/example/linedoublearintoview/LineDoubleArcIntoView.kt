@@ -212,4 +212,13 @@ class LineDoubleArcIntoView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDoubleArcIntoView {
+            val view : LineDoubleArcIntoView = LineDoubleArcIntoView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
