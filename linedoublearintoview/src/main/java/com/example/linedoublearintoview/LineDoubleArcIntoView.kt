@@ -44,7 +44,7 @@ fun Canvas.drawLineDoubleArcInto(scale : Float, w : Float, h : Float, paint : Pa
         for (j in 0..1) {
             drawXY(-size, 0f) {
                 rotate(rot * dsc(2) * j)
-                drawArc(RectF(0f, -size / 2, size, size / 2), 180f * (1 - dsc(0)), 180f * dsc(0), false, paint)
+                drawArc(RectF(0f, -size / 2, size, size / 2), 180f * (2 - dsc(0)), 180f * dsc(0), false, paint)
             }
         }
         drawLine(0f, 0f, -size * (dsc(0) + dsc(1)), 0f, paint)
