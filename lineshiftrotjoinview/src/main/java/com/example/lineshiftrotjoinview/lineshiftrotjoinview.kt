@@ -212,4 +212,13 @@ class LineShiftRotJoinView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineShiftRotJoinView {
+            val view : LineShiftRotJoinView = LineShiftRotJoinView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
