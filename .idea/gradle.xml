@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linedoublearintoview" />
             <option value="$PROJECT_DIR$/lineextendarcrotview" />
+            <option value="$PROJECT_DIR$/lineshiftrotjoinview" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
