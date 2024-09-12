@@ -42,11 +42,11 @@ fun Canvas.drawLineShiftJoin(scale : Float, w : Float, h : Float, paint : Paint)
     drawXY(w / 2, h / 2 + (h / 2) * dsc(3)) {
         for (j in 0..1) {
             drawXY((w / 2) * (1 - dsc(0)) + size * j, 0f) {
-                rotate(rot * dsc(1) * (1 - 2 * j))
+                rotate(rot * dsc(1).divideScale(j, 2) * (1 - 2 * j))
                 drawLine(0f, 0f, size * (1 - 2 * j), 0f, paint)
             }
             drawXY(size * j, size) {
-                drawLine(0f, 0f, size * 0.5f * (1 - 2 * j) * dsc(2), 0f, paint)
+                drawLine(0f, 0f, size * 0.5f * (1 - 2 * j) * dsc(2).divideScale(j, 2), 0f, paint)
             }
         }
     }
