@@ -190,4 +190,27 @@ class LineMainBiBentView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineMainBiBentView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lmbb : LineMainBiBent = LineMainBiBent(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lmbb.draw(canvas, paint)
+            animator.animate {
+                lmbb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lmbb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
