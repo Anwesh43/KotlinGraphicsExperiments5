@@ -215,4 +215,12 @@ class TriArcJoinRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : TriArcJoinRotView {
+            val view : TriArcJoinRotView = TriArcJoinRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
