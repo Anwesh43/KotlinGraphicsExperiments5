@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.RectF
 import android.app.Activity
 import android.content.Context
+import kotlin.math.acos
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -187,6 +188,29 @@ class TriArcJoinRotView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : TriArcJoinRotView) {
+
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val tajr : TriArcJoinRot = TriArcJoinRot(0)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            tajr.draw(canvas, paint)
+            animator.animate {
+                tajr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            tajr.startUpdating {
+                animator.start()
+            }
         }
     }
 }
