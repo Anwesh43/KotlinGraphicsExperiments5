@@ -40,12 +40,12 @@ fun Canvas.drawLineArcOpenRight(scale : Float, w : Float, h : Float, paint : Pai
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w / 2 + size / 2) * dsc(4), h / 2 - (h / 2 - size / 2) * (1 - dsc(2))) {
-        drawXY(size / 2, -size / 2) {
+    drawXY(w / 2 + (w / 2 + size / 2) * dsc(4), h / 2 + (h / 2 - size / 2) * (1 - dsc(2))) {
+        drawXY(size, 0f) {
             rotate(rot * dsc(3))
             drawLine(0f, 0f, -size * dsc(1), 0f, paint)
         }
-        drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 180f * (1 - dsc(0)), 180f * dsc(0), false, paint)
+        drawArc(RectF(0f, -size / 2, size, size / 2), 180f * (1 - dsc(0)), 180f * dsc(0), false, paint)
     }
 }
 
@@ -55,6 +55,7 @@ fun Canvas.drawLAORNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineArcOpenRight(scale, w, h, paint)
 }
 
