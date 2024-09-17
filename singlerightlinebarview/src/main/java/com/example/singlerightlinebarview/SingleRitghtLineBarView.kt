@@ -215,4 +215,12 @@ class SingleRightLineBarView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : SingleRightLineBarView {
+            val view : SingleRightLineBarView = SingleRightLineBarView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
