@@ -22,7 +22,7 @@ val strokeFactor : Float = 90f
 val rot : Float = 90f
 val backColor : Int = Color.parseColor("#BDBDBD")
 val delay : Long = 20
-val sizeFactor : Float = 90f
+val sizeFactor : Float = 4.9f
 val deg : Float = 180f
 
 fun Int.inverse() : Float = 1f / this
@@ -46,7 +46,7 @@ fun Canvas.drawSingleRightLineBar(scale : Float, w : Float, h : Float, paint : P
             rotate(deg * dsc(3))
             drawXY(0f, 0f) {
                 rotate(rot * dsc(1))
-                drawLine(0f, 0f, 0f, -size * dsc(0), paint)
+                drawLine(0f, 0f, 0f, size * dsc(0), paint)
             }
             drawXY(0f, -h * 0.5f * (1 - dsc(2))) {
                 drawRect(RectF(-size, -size, 0f, 0f), paint)
@@ -109,7 +109,7 @@ class SingleRightLineBarView(ctx : Context) : View(ctx) {
                 try {
                     Thread.sleep(delay)
                     view.invalidate()
-                } catch(ex) {
+                } catch(ex : Exception) {
 
                 }
             }
@@ -210,7 +210,7 @@ class SingleRightLineBarView(ctx : Context) : View(ctx) {
         }
 
         fun handleTap() {
-            srlb.startupdating {
+            srlb.startUpdating {
                 animator.start()
             }
         }
