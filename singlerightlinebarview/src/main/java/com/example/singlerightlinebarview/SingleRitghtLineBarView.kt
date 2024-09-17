@@ -190,4 +190,27 @@ class SingleRightLineBarView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SingleRightLineBarView) {
+
+        private var srlb : SingleRightLineBar = SingleRightLineBar(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            srlb.draw(canvas, paint)
+            animator.animate {
+                srlb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            srlb.startupdating {
+                animator.start()
+            }
+        }
+    }
 }
