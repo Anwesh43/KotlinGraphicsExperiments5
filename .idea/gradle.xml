@@ -12,11 +12,13 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arcintolinedownview" />
             <option value="$PROJECT_DIR$/arctouprotview" />
+            <option value="$PROJECT_DIR$/linearcopenrightview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linedoublearintoview" />
             <option value="$PROJECT_DIR$/lineextendarcrotview" />
             <option value="$PROJECT_DIR$/linemainbibentview" />
             <option value="$PROJECT_DIR$/lineshiftrotjoinview" />
+            <option value="$PROJECT_DIR$/singlerightlinebarview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
           </set>
         </option>
