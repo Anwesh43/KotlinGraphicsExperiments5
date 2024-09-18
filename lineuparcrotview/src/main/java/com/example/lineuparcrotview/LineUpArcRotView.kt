@@ -139,7 +139,7 @@ class LineUpArcRotView(ctx : Context) : View(ctx) {
 
         fun addNeighbor() {
             if (i < colors.size - 1) {
-                next = LUARNode(0)
+                next = LUARNode(i + 1)
                 next?.prev = this
             }
         }
