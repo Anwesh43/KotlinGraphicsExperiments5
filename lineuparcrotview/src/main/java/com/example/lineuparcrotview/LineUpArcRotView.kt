@@ -44,9 +44,9 @@ fun Canvas.drawLineUpArcRot(scale : Float, w : Float, h : Float, paint : Paint) 
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 scale(1f - 2 * j, 1f)
-                drawXY(size, 0f) {
+                drawXY(size / 2, 0f) {
                     rotate(rot * dsc(2))
-                    drawLine(0f, size * (1 - dsc(0)), 0f, size, paint)
+                    drawLine(0f, size * 0.5f * (1 - dsc(0)), 0f, size * 0.5f, paint)
                 }
                 drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f * dsc(1), 90f * dsc(1), false, paint)
             }
@@ -60,6 +60,7 @@ fun Canvas.drawLUARNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineUpArcRot(scale, w, h, paint)
 }
 
