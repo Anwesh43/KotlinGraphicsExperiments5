@@ -189,4 +189,27 @@ class LineUpArcRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineUpArcRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val luar : LineUpArcRot = LineUpArcRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            luar.draw(canvas, paint)
+            animator.animate{
+                luar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            luar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
