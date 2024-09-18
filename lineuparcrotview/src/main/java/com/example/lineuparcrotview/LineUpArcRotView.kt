@@ -214,4 +214,13 @@ class LineUpArcRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineUpArcRotView {
+            val view : LineUpArcRotView = LineUpArcRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
