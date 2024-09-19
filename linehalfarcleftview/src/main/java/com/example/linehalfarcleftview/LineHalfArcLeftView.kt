@@ -41,12 +41,14 @@ fun Canvas.drawLineHalfArcLeft(scale : Float, w : Float, h : Float, paint : Pain
         scale.divideScale(it, parts)
     }
     drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
+        paint.textSize = size / 2
+        drawText("${Math.floor(4.0 * scale.toDouble()).toInt()}", -size / 2, -h / 3, paint)
         drawXY(0f, 0f) {
             rotate(rot * dsc(2))
             drawLine(0f, 0f, size * dsc(0), 0f, paint)
         }
         drawXY(0f, 0f) {
-            drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 180f * dsc(2), 180f * (dsc(1) - dsc(2)), false, paint)
+            drawArc(RectF(-size, -size, size, size), 180f * dsc(2), 180f * (dsc(1) - dsc(2)), false, paint)
         }
     }
 }
