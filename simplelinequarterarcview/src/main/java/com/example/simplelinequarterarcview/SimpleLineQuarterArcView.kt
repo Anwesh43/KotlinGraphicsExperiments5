@@ -47,7 +47,7 @@ fun Canvas.drawSimpleLineQuarterArc(scale : Float, w : Float, h : Float, paint :
                 for (k in 0..1) {
                     drawXY(0f, 0f) {
                         rotate(rot * 0.5f * (1 - 2 * k) * dsc(1))
-                        drawLine(0f, -size * dsc(4), 0f, -size * dsc(0), paint)
+                        drawLine(0f, -size * dsc(4) * (((1 - j) * (1 - k)) + (j * k)), 0f, -size * dsc(0), paint)
                     }
                     drawArc(RectF(-size, -size, size, size), -90f - rot * 0.5f * dsc(1), rot * dsc(1), false, paint)
                 }
