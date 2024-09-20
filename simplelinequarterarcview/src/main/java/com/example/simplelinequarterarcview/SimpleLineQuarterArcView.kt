@@ -192,4 +192,27 @@ class SimpleLineQuarterArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SimpleLineQuarterArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val slqa : SimpleLineQuarterArc = SimpleLineQuarterArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            slqa.draw(canvas, paint)
+            animator.animate {
+                slqa.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            slqa.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
