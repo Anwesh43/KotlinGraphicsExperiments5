@@ -217,4 +217,13 @@ class SimpleLineQuarterArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : SimpleLineQuarterArcView {
+            val view : SimpleLineQuarterArcView = SimpleLineQuarterArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
