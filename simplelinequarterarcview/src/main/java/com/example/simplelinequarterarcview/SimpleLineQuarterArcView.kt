@@ -65,3 +65,19 @@ fun Canvas.drawSLQANode(i : Int, scale : Float, paint : Paint) {
     paint.style = Paint.Style.STROKE
     drawSimpleLineQuarterArc(scale, w, h, paint)
 }
+
+class SimpleLineQuarterArcView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
