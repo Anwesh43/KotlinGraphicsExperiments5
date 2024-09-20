@@ -16,8 +16,8 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 5
-val scGap : Float = 0.04f / parts
+val parts : Int = 6
+val scGap : Float = 0.05f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
@@ -40,16 +40,16 @@ fun Canvas.drawSimpleLineQuarterArc(scale : Float, w : Float, h : Float, paint :
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
+    drawXY(w / 2 - (w / 2) * dsc(5), h / 2) {
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 rotate(-rot * (0.5f + (1 - j)) * dsc(2 + j))
                 for (k in 0..1) {
                     drawXY(0f, 0f) {
                         rotate(rot * 0.5f * (1 - 2 * k) * dsc(1))
-                        drawLine(0f, 0f, 0f, -size * dsc(0), paint)
+                        drawLine(0f, -size * dsc(4), 0f, -size * dsc(0), paint)
                     }
-                    drawArc(RectF(-size, -size, size, size), -90f - rot * 0.5f * dsc(0), rot * dsc(1), false, paint)
+                    drawArc(RectF(-size, -size, size, size), -90f - rot * 0.5f * dsc(1), rot * dsc(1), false, paint)
                 }
             }
         }
