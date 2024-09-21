@@ -185,4 +185,27 @@ class LineSlantRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineSlantRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lsr : LineSlantRight = LineSlantRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lsr.draw(canvas, paint)
+            animator.animate {
+                lsr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lsr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
