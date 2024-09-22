@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arcconcverticalrotview" />
             <option value="$PROJECT_DIR$/arcintolinedownview" />
             <option value="$PROJECT_DIR$/arctouprotview" />
             <option value="$PROJECT_DIR$/linearcopenrightview" />
@@ -19,7 +20,9 @@
             <option value="$PROJECT_DIR$/linehalfarcleftview" />
             <option value="$PROJECT_DIR$/linemainbibentview" />
             <option value="$PROJECT_DIR$/lineshiftrotjoinview" />
+            <option value="$PROJECT_DIR$/lineslantrightview" />
             <option value="$PROJECT_DIR$/lineuparcrotview" />
+            <option value="$PROJECT_DIR$/simplelinequarterarcview" />
             <option value="$PROJECT_DIR$/singlerightlinebarview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
           </set>
