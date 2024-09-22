@@ -213,4 +213,12 @@ class ArcConcVerticalRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : ArcConcVerticalRotView {
+            val view : ArcConcVerticalRotView = ArcConcVerticalRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
