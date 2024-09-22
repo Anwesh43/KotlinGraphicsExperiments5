@@ -188,4 +188,27 @@ class ArcConcVerticalRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcConcVerticalRotView) {
+
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val acvr : ArcConcVerticalRot = ArcConcVerticalRot(0)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            acvr.draw(canvas, paint)
+            animator.animate {
+                acvr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            acvr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
