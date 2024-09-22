@@ -47,7 +47,7 @@ fun Canvas.drawArcConcVerticalRot(scale : Float, w : Float, h : Float, paint : P
             drawXY(0f, -size + size * j) {
                 val dsc1 : Float = dsc(0).divideScale(j, 2)
                 val dsc2 : Float = dsc(1).divideScale(1 - j, 2)
-                drawArc(RectF(0f, 0f, size, size), 90f, 180f * (dsc1 + dsc2), false, paint)
+                drawArc(RectF(0f, 0f, size, size), -90f, 180f * (dsc1 + dsc2), false, paint)
             }
         }
     }
@@ -59,6 +59,7 @@ fun Canvas.drawACVRNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawArcConcVerticalRot(scale, w, h, paint)
 }
 
