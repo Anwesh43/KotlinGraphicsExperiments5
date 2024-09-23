@@ -211,4 +211,12 @@ class BiLineQuarterArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : BiLineQuarterArcView {
+            val view : BiLineQuarterArcView = BiLineQuarterArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
