@@ -186,4 +186,27 @@ class BiLineQuarterArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiLineQuarterArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val blqa : BiLineQuarterArc = BiLineQuarterArc(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            blqa.draw(canvas, paint)
+            animator.animate {
+                blqa.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            blqa.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
