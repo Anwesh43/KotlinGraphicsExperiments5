@@ -122,4 +122,45 @@ class AltUpDownLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class AUDLNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : AUDLNode? = null
+        private var prev : AUDLNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = AUDLNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawAUDLNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : AUDLNode {
+            var curr : AUDLNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
