@@ -54,7 +54,7 @@ fun Canvas.drawAltUpDownLine(scale : Float, w : Float, h : Float, paint : Paint)
 fun Canvas.drawAUDLNode(i : Int, scale : Float, paint : Paint) {
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
-    paint.color = Color.parseColor("#BDBDBD")
+    paint.color = Color.parseColor(colors[i])
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.strokeCap = Paint.Cap.ROUND
     drawAltUpDownLine(scale, w, h, paint)
