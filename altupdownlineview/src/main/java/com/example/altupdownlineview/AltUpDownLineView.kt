@@ -211,4 +211,13 @@ class AltUpDownLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : AltUpDownLineView {
+            val view : AltUpDownLineView = AltUpDownLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
