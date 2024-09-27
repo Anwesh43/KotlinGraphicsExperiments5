@@ -209,4 +209,13 @@ class LineFloorDownArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineFloorDownArcView {
+            val view : LineFloorDownArcView = LineFloorDownArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
