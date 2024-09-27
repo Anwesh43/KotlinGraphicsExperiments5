@@ -184,4 +184,27 @@ class LineFloorDownArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineFloorDownArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val lfda : LineFloorDownArc = LineFloorDownArc(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lfda.draw(canvas, paint)
+            animator.animate {
+                lfda.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lfda.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
