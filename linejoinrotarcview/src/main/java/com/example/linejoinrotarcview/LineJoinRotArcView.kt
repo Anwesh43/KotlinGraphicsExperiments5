@@ -213,4 +213,12 @@ class LineJoinRotArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : LineJoinRotArcView {
+            val view : LineJoinRotArcView = LineJoinRotArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
