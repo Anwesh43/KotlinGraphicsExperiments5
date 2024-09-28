@@ -40,7 +40,7 @@ fun Canvas.drawLineJoinRotArc(scale : Float, w : Float, h : Float, paint : Paint
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2, h / 2) {
+    drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
         rotate(rot * 2 * dsc(3))
         for (j in 0..1) {
             drawXY(0f, 0f) {
