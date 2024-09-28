@@ -186,4 +186,27 @@ class LineJoinRotArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineJoinRotArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val ljra : LineJoinRotArc = LineJoinRotArc(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ljra.draw(canvas, paint)
+            animator.animate {
+                ljra.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ljra.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
