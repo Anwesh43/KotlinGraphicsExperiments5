@@ -183,4 +183,27 @@ class ArcRotUpDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcRotUpDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val arud : ArcRotUpDown = ArcRotUpDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            arud.draw(canvas, paint)
+            animator.animate {
+                arud.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            arud.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
