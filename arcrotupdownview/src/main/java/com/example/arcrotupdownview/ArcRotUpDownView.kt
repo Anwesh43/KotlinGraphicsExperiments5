@@ -208,4 +208,12 @@ class ArcRotUpDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcRotUpDownView {
+            val view : ArcRotUpDownView = ArcRotUpDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
