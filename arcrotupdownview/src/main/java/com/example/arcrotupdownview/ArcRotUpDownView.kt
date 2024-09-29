@@ -43,7 +43,8 @@ fun Canvas.drawArcRotUpDown(scale : Float, w : Float, h : Float, paint : Paint) 
     drawXY(w / 2 + (w / 2) * dsc(3), h / 2) {
         rotate(rot * dsc(2))
         drawXY(0f, h * 0.5f * (1 - dsc(1))) {
-            drawArc(RectF(-size / 2, -size, size / 2, 0f), -90f, 360f * dsc(0), false, paint)
+            drawArc(RectF(-size / 2, -size, size / 2, 0f), -90f, 360f * dsc(0).divideScale(0, 2), false, paint)
+            drawLine(0f, 0f, 0f, -size * dsc(0).divideScale(1, 2), paint)
         }
     }
 }
@@ -54,6 +55,7 @@ fun Canvas.drawARUDNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawArcRotUpDown(scale, w, h, paint)
 }
 
