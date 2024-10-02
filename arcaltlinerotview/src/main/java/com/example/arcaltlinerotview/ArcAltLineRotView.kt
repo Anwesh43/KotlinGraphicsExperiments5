@@ -217,4 +217,13 @@ class ArcAltLineRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ArcAltLineRotView {
+            val view : ArcAltLineRotView = ArcAltLineRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
