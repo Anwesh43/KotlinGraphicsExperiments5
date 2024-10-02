@@ -192,4 +192,27 @@ class ArcAltLineRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcAltLineRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val aalr : ArcAltLineRot = ArcAltLineRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aalr.draw(canvas, paint)
+            animator.animate {
+                aalr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aalr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
