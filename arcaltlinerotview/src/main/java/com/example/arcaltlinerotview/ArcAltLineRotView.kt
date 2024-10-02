@@ -45,9 +45,9 @@ fun Canvas.drawArcAltLineRot(scale : Float, w : Float, h : Float, paint : Paint)
             drawXY(0f, 0f) {
                 scale(1f - 2 * j, 1f)
                 drawXY((w * 0.5f * dsc(3)), 0f) {
-                    drawXY(0f, 0f) {
+                    drawXY(0f, -size / 2) {
                         rotate(rot * dsc(2))
-                        drawLine(0f, -size, 0f, -size + size * 0.5f * dsc(0), paint)
+                        drawLine(0f, -size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), paint)
                     }
                     drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f, 90f * dsc(1), false, paint)
                 }
