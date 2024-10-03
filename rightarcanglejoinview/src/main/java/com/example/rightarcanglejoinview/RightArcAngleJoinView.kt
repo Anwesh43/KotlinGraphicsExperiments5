@@ -211,4 +211,13 @@ class RightArcAngleJoinView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : RightArcAngleJoinView {
+            val view : RightArcAngleJoinView = RightArcAngleJoinView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
