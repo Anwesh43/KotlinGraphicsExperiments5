@@ -186,4 +186,27 @@ class RightArcAngleJoinView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RightArcAngleJoinView) {
+
+        private val animator : Animator = Animator(view)
+        private val raaj : RightArcAngleJoin = RightArcAngleJoin(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            raaj.draw(canvas, paint)
+            animator.animate {
+                raaj.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            raaj.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
