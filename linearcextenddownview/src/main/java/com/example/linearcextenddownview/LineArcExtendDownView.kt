@@ -187,4 +187,27 @@ class LineArcExtendDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineArcExtendDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val laed : LineArcExtendDown = LineArcExtendDown(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            laed.draw(canvas, paint)
+            animator.animate {
+                laed.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            laed.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
