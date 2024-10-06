@@ -218,4 +218,13 @@ class LineTriArcCloseView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineTriArcCloseView {
+            val view : LineTriArcCloseView = LineTriArcCloseView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
