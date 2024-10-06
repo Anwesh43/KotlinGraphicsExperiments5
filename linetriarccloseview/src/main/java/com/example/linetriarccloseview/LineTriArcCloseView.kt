@@ -193,4 +193,27 @@ class LineTriArcCloseView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineTriArcCloseView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ltac : LineTriArcClose = LineTriArcClose(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ltac.draw(canvas, paint)
+            animator.animate {
+                ltac.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ltac.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
