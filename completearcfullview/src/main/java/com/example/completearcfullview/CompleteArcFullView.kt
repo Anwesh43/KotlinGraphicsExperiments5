@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.RectF
+import android.util.Log
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -19,7 +20,7 @@ val colors : Array<String> = arrayOf(
 val parts : Int = 4
 val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
-val rot : Float = -90f
+val rot : Float = -180fple
 val sizeFactor : Float = 4.9f
 val backColor : Int = Color.parseColor("#BDBDBD")
 val delay : Long = 20
@@ -36,11 +37,12 @@ fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
 }
 
 fun Canvas.drawCompleteArcFull(scale : Float, w : Float, h : Float, paint : Paint) {
-    val size : Float = Math.min(w, h) / strokeFactor
+    val size : Float = Math.min(w, h) / sizeFactor
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w / 2), h / 2 - (h / 2) * dsc(3)) {
+    Log.d("SCALE", "${scale}")
+    drawXY(w / 2, h / 2 - (h / 2) * dsc(3)) {
         for (j in 0..1) {
             paint.style = Paint.Style.STROKE
             drawXY(0f, 0f) {
@@ -85,6 +87,7 @@ class CompleteArcFullView(ctx : Context) : View(ctx) {
 
         fun update(cb : (Float) -> Unit) {
             scale += scGap * dir
+            Log.d("SCUPDATE", "${scGap} ${dir}")
             if (Math.abs(scale - prevScale) > 1) {
                 scale = prevScale + dir
                 dir = 0f
@@ -203,7 +206,7 @@ class CompleteArcFullView(ctx : Context) : View(ctx) {
             canvas.drawColor(backColor)
             caf.draw(canvas, paint)
             animator.animate {
-                caf.startUpdating {
+                caf.update {
                     animator.stop()
                 }
             }
