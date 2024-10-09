@@ -215,4 +215,13 @@ class CompleteArcFullView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : CompleteArcFullView {
+            val view : CompleteArcFullView = CompleteArcFullView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
