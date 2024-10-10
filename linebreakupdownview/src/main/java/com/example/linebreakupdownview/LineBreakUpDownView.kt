@@ -210,4 +210,13 @@ class LineBreakUpDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBreakUpDownView {
+            val view : LineBreakUpDownView = LineBreakUpDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
