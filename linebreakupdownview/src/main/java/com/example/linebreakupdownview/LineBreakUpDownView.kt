@@ -185,4 +185,27 @@ class LineBreakUpDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBreakUpDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lbud : LineBreakUpDown = LineBreakUpDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbud.draw(canvas, paint)
+            animator.animate {
+                lbud.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbud.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
