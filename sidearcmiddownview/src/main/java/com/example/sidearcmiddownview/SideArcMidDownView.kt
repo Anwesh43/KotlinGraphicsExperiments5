@@ -16,7 +16,7 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val rot : Float = 90f
+val rot : Float = 180f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val sizeFactor : Float = 4.9f
@@ -41,14 +41,14 @@ fun Canvas.drawSideArcMidDown(scale : Float, w : Float, h : Float, paint : Paint
         scale.divideScale(it, parts)
     }
     drawXY(w / 2, h / 2) {
-        drawXY(size * 0.5f, 0f) {
+        drawXY(size * 0.5f * dsc(2), 0f) {
             for (j in 0..1) {
                 drawXY(-size + size * j, 0f) {
                     rotate(rot * (1 - j) * (dsc(1)))
                     drawArc(
                         RectF(-size, -size / 2, 0f, size / 2),
-                        180f * dsc(3),
-                        180f * (dsc(0).divideScale(j, 2) - dsc(3)),
+                        180f * j * dsc(3),
+                        180f * (dsc(0).divideScale(1 - j, 2) - dsc(3)),
                         false,
                         paint
                     )
