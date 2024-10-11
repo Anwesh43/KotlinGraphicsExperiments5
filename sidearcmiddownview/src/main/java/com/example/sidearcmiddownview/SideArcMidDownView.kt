@@ -16,7 +16,7 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val rot : Float = -90f
+val rot : Float = 90f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val sizeFactor : Float = 4.9f
@@ -64,6 +64,7 @@ fun Canvas.drawSAMDNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawSideArcMidDown(scale, w, h, paint)
 }
 
