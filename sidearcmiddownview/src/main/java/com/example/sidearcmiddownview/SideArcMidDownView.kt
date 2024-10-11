@@ -218,4 +218,13 @@ class SideArcMidDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : SideArcMidDownView {
+            val view : SideArcMidDownView = SideArcMidDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
