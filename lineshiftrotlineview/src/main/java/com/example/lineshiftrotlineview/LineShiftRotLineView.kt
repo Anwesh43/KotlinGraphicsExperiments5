@@ -187,4 +187,27 @@ class LineShiftRotLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineShiftRotLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lsrl : LineShiftRotLine = LineShiftRotLine(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lsrl.draw(canvas, paint)
+            animator.animate {
+                lsrl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lsrl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
