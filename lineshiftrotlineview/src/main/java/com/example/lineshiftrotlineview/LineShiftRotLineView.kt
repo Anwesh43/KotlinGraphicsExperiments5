@@ -212,4 +212,13 @@ class LineShiftRotLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineShiftRotLineView {
+            val view : LineShiftRotLineView = LineShiftRotLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
