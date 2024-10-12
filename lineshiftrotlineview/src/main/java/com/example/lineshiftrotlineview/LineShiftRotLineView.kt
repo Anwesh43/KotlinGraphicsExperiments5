@@ -15,7 +15,7 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 4
+val parts : Int = 5
 val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
@@ -39,7 +39,7 @@ fun Canvas.drawLineShiftRotLine(scale : Float, w : Float, h : Float, paint : Pai
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w  / 2 + size) * dsc(3), h / 2) {
+    drawXY(w / 2 + (w  / 2 + size) * dsc(4), h / 2) {
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 rotate(-rot * j * dsc(1))
@@ -47,6 +47,7 @@ fun Canvas.drawLineShiftRotLine(scale : Float, w : Float, h : Float, paint : Pai
             }
         }
         drawXY(-w * 0.5f * (1 - dsc(2)), 0f) {
+            rotate(-rot * dsc(3))
             drawLine(0f, 0f, -size * dsc(0), 0f, paint)
         }
     }
