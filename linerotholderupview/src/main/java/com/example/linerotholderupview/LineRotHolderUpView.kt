@@ -46,7 +46,7 @@ fun Canvas.drawLineRotHolderUp(scale : Float, w : Float, h : Float, paint : Pain
                 drawLine(0f, size, 0f, size - size * dsc(0), paint)
             }
         }
-        drawXY(-size, -size - (h - size) * (1 - dsc(2))) {
+        drawXY(-size, -size - (h / 2 - size) * (1 - dsc(2))) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
     }
