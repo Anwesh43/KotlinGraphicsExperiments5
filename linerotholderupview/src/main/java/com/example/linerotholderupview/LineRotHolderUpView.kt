@@ -212,4 +212,13 @@ class LineRotHolderUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineRotHolderUpView {
+            val view : LineRotHolderUpView = LineRotHolderUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
