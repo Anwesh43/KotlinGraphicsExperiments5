@@ -187,4 +187,27 @@ class LineRotHolderUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotHolderUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrhu : LineRotHolderUp = LineRotHolderUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrhu.draw(canvas, paint)
+            animator.animate {
+                lrhu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrhu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
