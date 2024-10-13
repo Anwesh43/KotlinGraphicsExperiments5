@@ -42,7 +42,7 @@ fun Canvas.drawLineRotHolderUp(scale : Float, w : Float, h : Float, paint : Pain
     drawXY(w / 2, h / 2 - (h / 2) * dsc(3)) {
         for (j in 0..1) {
             drawXY(0f, -size) {
-                rotate(rot * dsc(1))
+                rotate(rot * dsc(1) * j)
                 drawLine(0f, size, 0f, size - size * dsc(0), paint)
             }
         }
@@ -57,7 +57,7 @@ fun Canvas.drawLRHUNode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
-    paint.strokeWidth = Math.min(w, h) / sizeFactor
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineRotHolderUp(scale, w, h, paint)
 }
 
