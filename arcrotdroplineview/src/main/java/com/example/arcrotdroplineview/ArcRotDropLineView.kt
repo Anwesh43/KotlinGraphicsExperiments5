@@ -211,4 +211,13 @@ class ArcRotDropLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ArcRotDropLineView {
+            val view : ArcRotDropLineView = ArcRotDropLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
