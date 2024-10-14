@@ -45,7 +45,7 @@ fun Canvas.drawArcRotDrop(scale : Float, w : Float, h : Float, paint : Paint) {
             rotate(rot * dsc(1))
             drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(0), false, paint)
         }
-        drawXY(0f, size / 2 - (h / 2 + size / 2) * (1 - dsc(2))) {
+        drawXY(size / 2, size / 2 - (h / 2 + size / 2) * (1 - dsc(2))) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
     }
@@ -57,6 +57,7 @@ fun Canvas.drawARDNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawArcRotDrop(scale, w, h, paint)
 }
 
