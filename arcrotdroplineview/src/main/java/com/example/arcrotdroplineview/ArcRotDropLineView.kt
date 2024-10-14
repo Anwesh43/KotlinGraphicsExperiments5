@@ -45,7 +45,7 @@ fun Canvas.drawArcRotDrop(scale : Float, w : Float, h : Float, paint : Paint) {
             rotate(rot * dsc(1))
             drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(0), false, paint)
         }
-        drawXY(size / 2, size / 2 - (h / 2 + size / 2) * (1 - dsc(2))) {
+        drawXY(-size / 2, size / 2 - (h / 2 + size / 2) * (1 - dsc(2))) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
     }
