@@ -213,4 +213,13 @@ class ArcAltSideRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ArcAltSideRotView {
+            val view : ArcAltSideRotView = ArcAltSideRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
