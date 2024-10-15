@@ -188,4 +188,27 @@ class ArcAltSideRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcAltSideRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val aasr : ArcAltSideRot = ArcAltSideRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aasr.draw(canvas, paint)
+            animator.animate {
+                aasr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aasr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
