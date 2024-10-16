@@ -47,7 +47,7 @@ fun Canvas.drawTriLineCloseUp(scale : Float, w : Float, h : Float, paint : Paint
         }
         drawXY(-size, 0f) {
             val ds1 : Float = dsc(0).divideScale(0, 2)
-            val ds2 : Float = dsc(1).divideScale(1, 2)
+            val ds2 : Float = dsc(0).divideScale(1, 2)
             drawLine(0f, 0f, size * 0.5f * ds1, -size * 0.5f * ds1, paint)
             drawXY(size / 2, -size / 2) {
                 drawLine(0f, 0f, size * 0.5f * ds2, size * 0.5f * ds2, paint)
