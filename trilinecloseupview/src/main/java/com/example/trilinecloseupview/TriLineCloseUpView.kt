@@ -216,4 +216,13 @@ class TriLineCloseUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : TriLineCloseUpView {
+            val view : TriLineCloseUpView = TriLineCloseUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
