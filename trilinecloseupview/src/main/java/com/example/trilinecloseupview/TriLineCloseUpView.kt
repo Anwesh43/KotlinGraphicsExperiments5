@@ -191,4 +191,27 @@ class TriLineCloseUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : TriLineCloseUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val tlcu : TriLineCloseUp = TriLineCloseUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            tlcu.draw(canvas, paint)
+            animator.animate {
+                tlcu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            tlcu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
