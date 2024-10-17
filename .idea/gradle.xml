@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/altupdownlineview" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arcaltlinerotview" />
+            <option value="$PROJECT_DIR$/arcaltsiderotview" />
             <option value="$PROJECT_DIR$/arcconcverticalrotview" />
             <option value="$PROJECT_DIR$/arcintolinedownview" />
             <option value="$PROJECT_DIR$/arcrotdroplineview" />
@@ -30,6 +31,7 @@
             <option value="$PROJECT_DIR$/linehalfarcleftview" />
             <option value="$PROJECT_DIR$/linejoinrotarcview" />
             <option value="$PROJECT_DIR$/linemainbibentview" />
+            <option value="$PROJECT_DIR$/linemultirotleftview" />
             <option value="$PROJECT_DIR$/linerotholderupview" />
             <option value="$PROJECT_DIR$/linerotupleftview" />
             <option value="$PROJECT_DIR$/lineshiftrotjoinview" />
@@ -42,6 +44,7 @@
             <option value="$PROJECT_DIR$/simplelinequarterarcview" />
             <option value="$PROJECT_DIR$/singlerightlinebarview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
+            <option value="$PROJECT_DIR$/trilinecloseupview" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
