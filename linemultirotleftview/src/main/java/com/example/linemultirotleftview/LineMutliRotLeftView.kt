@@ -211,4 +211,13 @@ class LineMultiRotLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineMultiRotLeftView {
+            val view : LineMultiRotLeftView = LineMultiRotLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
