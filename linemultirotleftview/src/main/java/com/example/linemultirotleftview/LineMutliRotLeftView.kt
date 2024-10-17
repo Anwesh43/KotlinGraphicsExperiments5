@@ -39,7 +39,7 @@ fun Canvas.drawLineMutliRotLeft(scale : Float, w : Float, h : Float, paint : Pai
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
+    drawXY(w / 2 - (w / 2 + paint.strokeWidth) * dsc(3), h / 2) {
         drawXY(0f, 0f) {
             rotate(-rot * dsc(1))
             drawLine(0f, 0f, size * dsc(0), 0f, paint)
