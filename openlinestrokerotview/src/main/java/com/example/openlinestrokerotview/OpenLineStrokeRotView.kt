@@ -211,4 +211,13 @@ class OpenLineStrokeRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : OpenLineStrokeRotView {
+            val view : OpenLineStrokeRotView = OpenLineStrokeRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
