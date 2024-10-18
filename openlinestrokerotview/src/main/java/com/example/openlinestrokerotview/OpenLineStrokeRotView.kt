@@ -186,4 +186,27 @@ class OpenLineStrokeRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : OpenLineStrokeRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val olsr : OpenLineStrokeRot = OpenLineStrokeRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            olsr.draw(canvas, paint)
+            animator.animate {
+                olsr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            olsr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
