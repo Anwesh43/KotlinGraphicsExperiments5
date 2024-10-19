@@ -12,11 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.openlinestrokerotview.OpenLineStrokeRotView
+import com.example.linebentrottorightview.LineBentRotToRightView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        OpenLineStrokeRotView.create(this)
+        LineBentRotToRightView.create(this)
     }
 }
