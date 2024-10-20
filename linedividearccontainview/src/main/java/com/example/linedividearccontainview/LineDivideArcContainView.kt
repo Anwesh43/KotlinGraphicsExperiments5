@@ -196,4 +196,27 @@ class LineDivideArcContainView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDivideArcContainView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ldac : LineDivideArcContain = LineDivideArcContain(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldac.draw(canvas, paint)
+            animator.animate {
+                ldac.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldac.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
