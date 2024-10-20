@@ -221,4 +221,13 @@ class LineDivideArcContainView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineDivideArcContainView {
+            val view : LineDivideArcContainView = LineDivideArcContainView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
