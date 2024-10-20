@@ -16,13 +16,14 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 4
+val parts : Int = 6
 val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val rot : Float = 90f
 val sizeFactor : Float = 4.9f
+val deg : Float = 270f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -47,12 +48,15 @@ fun Canvas.drawLineDivideArcContain(scale : Float, w  : Float, h : Float, paint 
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2, h / 2) {
+    drawXY(w / 2 - (w / 2) * dsc(5), h / 2) {
         drawXY(0f, -size / 2) {
             rotateXY(rot * dsc(3)) {
                 drawLine(-size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), 0f, paint)
             }
             drawLine(0f, 0f, 0f, size * 0.5f * dsc(1), paint)
+        }
+        rotateXY(deg * dsc(4)) {
+            drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(2), false, paint)
         }
     }
 }
