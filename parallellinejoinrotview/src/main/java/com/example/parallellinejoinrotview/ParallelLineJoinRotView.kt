@@ -211,4 +211,13 @@ class ParallelLineJoinRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : ParallelLineJoinRotView {
+            val view : ParallelLineJoinRotView = ParallelLineJoinRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
