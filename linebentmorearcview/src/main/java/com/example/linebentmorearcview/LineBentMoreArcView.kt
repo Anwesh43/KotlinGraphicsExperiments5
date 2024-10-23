@@ -192,4 +192,27 @@ class LineBentMoreArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBentMoreArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lbma : LineBentMoreArc = LineBentMoreArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbma.draw(canvas, paint)
+            animator.animate {
+                lbma.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbma.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
