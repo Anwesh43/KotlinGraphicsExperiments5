@@ -208,4 +208,13 @@ class ArcFromRightUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcFromRightUpView {
+            val view : ArcFromRightUpView = ArcFromRightUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
