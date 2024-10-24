@@ -119,4 +119,45 @@ class ArcFromRightUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class AFRUNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : AFRUNode? = null
+        private var prev : AFRUNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = AFRUNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawAFRUNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : AFRUNode {
+            var curr : AFRUNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
