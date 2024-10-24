@@ -25,7 +25,7 @@ val backColor : Int = Color.parseColor("#BDBDBD")
 val rot : Float = 90f
 
 fun Int.inverse() : Float = 1f / this
-fun Float.maxScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse()) * n
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
 
 fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
@@ -41,6 +41,7 @@ fun Canvas.drawArcFromRightUp(scale : Float, w : Float, h : Float, paint : Paint
         scale.divideScale(it, parts)
     }
     drawXY(w / 2, h / 2 - (h / 2) * dsc(4)) {
+        rotate(-rot * dsc(2))
         drawXY((w / 2 - size) * (1 - dsc(1)), 0f) {
             drawArc(RectF(0f, -size / 2, size, size / 2), 0f, 180f * (dsc(0) + dsc(3)), false, paint)
         }
