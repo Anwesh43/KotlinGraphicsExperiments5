@@ -183,4 +183,27 @@ class ArcFromRightUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcFromRightUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val afru : ArcFromRightUp = ArcFromRightUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            afru.draw(canvas, paint)
+            animator.animate {
+                afru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            afru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
