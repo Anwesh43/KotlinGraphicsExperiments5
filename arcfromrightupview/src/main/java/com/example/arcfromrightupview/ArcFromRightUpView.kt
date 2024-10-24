@@ -56,3 +56,19 @@ fun Canvas.drawAFRUNode(i : Int, scale : Float, paint : Paint) {
     paint.style = Paint.Style.STROKE
     drawArcFromRightUp(scale, w, h, paint)
 }
+
+class ArcFromRightUpView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
