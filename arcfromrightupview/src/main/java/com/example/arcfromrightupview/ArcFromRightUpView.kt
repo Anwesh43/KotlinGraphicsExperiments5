@@ -54,5 +54,5 @@ fun Canvas.drawAFRUNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.style = Paint.Style.STROKE
-
+    drawArcFromRightUp(scale, w, h, paint)
 }
