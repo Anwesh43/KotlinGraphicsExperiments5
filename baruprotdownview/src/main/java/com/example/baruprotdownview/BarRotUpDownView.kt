@@ -184,4 +184,27 @@ class BarRotUpDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BarRotUpDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val brud : BarRotUpDown = BarRotUpDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            brud.draw(canvas, paint)
+            animator.animate {
+                brud.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            brud.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
