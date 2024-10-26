@@ -41,7 +41,7 @@ fun Canvas.drawLineAltRotRight(scale : Float, w : Float, h : Float, paint : Pain
     }
     drawXY(w / 2 + (w / 2) * dsc(3), h / 2) {
         drawXY(0f, h * 0.5f * (1 - dsc(0))) {
-            rotate(rot * dsc(2))
+            rotate(-rot * dsc(2))
             drawLine(0f, 0f, 0f, size, paint)
         }
         drawXY((w / 2) * (1 - dsc(1)), 0f) {
