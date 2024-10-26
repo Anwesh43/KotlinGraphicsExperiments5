@@ -185,4 +185,27 @@ class LineAltRotRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineAltRotRightView) {
+
+        private val laar : LineAltRotRight = LineAltRotRight(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            laar.draw(canvas, paint)
+            animator.animate {
+                laar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            laar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
