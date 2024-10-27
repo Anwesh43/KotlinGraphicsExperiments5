@@ -123,4 +123,45 @@ class ArcMainConcLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class AMCLNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : AMCLNode? = null
+        private var prev : AMCLNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = AMCLNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawAMCLNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUdpating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : AMCLNode {
+            var curr : AMCLNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
