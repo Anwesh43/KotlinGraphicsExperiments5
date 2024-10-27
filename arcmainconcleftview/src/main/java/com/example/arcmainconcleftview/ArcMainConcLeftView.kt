@@ -213,5 +213,13 @@ class ArcMainConcLeftView(ctx : Context) : View(ctx) {
         }
     }
 
+    companion object {
+
+        fun create(activity: Activity) : ArcMainConcLeftView {
+            val view : ArcMainConcLeftView = ArcMainConcLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 
 }
