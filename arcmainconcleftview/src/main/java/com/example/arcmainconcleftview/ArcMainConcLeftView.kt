@@ -187,4 +187,27 @@ class ArcMainConcLeftView(ctx : Context) : View(ctx) {
             curr.startUdpating(cb)
         }
     }
+
+    data class Renderer(var view : ArcMainConcLeftView) {
+
+        private val amcl : ArcMainConcLeft = ArcMainConcLeft(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            amcl.draw(canvas, paint)
+            animator.animate {
+                amcl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            amcl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
