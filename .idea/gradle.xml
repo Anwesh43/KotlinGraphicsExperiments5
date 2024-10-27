@@ -16,12 +16,14 @@
             <option value="$PROJECT_DIR$/arcconcverticalrotview" />
             <option value="$PROJECT_DIR$/arcfromrightupview" />
             <option value="$PROJECT_DIR$/arcintolinedownview" />
+            <option value="$PROJECT_DIR$/arcmainconcleftview" />
             <option value="$PROJECT_DIR$/arcrotdroplineview" />
             <option value="$PROJECT_DIR$/arcrotupdownview" />
             <option value="$PROJECT_DIR$/arctouprotview" />
             <option value="$PROJECT_DIR$/baruprotdownview" />
             <option value="$PROJECT_DIR$/bilinequarterarcview" />
             <option value="$PROJECT_DIR$/completearcfullview" />
+            <option value="$PROJECT_DIR$/linealtrotrightview" />
             <option value="$PROJECT_DIR$/linearcextenddownview" />
             <option value="$PROJECT_DIR$/linearcopenrightview" />
             <option value="$PROJECT_DIR$/linearcrightdownview" />
