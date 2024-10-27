@@ -57,5 +57,6 @@ fun Canvas.drawAMCLNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.style = Paint.Style.STROKE
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawArcMainConcLeft(scale, w, h, paint)
 }
