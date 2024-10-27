@@ -42,9 +42,9 @@ fun Canvas.drawArcMainConcLeft(scale : Float, w : Float, h : Float, paint : Pain
     }
     drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
         rotate(rot * dsc(2))
-        drawArc(RectF(-size, -size / 2, 0f, size / 2), 90f, 180f * dsc(0), false, paint)
+        drawArc(RectF(-size / 2, -size, size / 2, 0f), 90f, 180f * dsc(0), false, paint)
         for (j in 0..1) {
-            drawXY(0f, -size) {
+            drawXY(0f, -size + size * 0.5f * j) {
                 drawArc(RectF(-size / 4, 0f, size / 4, size / 2), -90f, 180f * dsc(1).divideScale(j, 2), false, paint)
             }
         }
