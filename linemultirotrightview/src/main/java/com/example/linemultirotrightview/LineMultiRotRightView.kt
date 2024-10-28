@@ -123,4 +123,45 @@ class LineMultiRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class LMRRNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : LMRRNode? = null
+        private var prev : LMRRNode? = null
+
+        init {
+            addNeighor()
+        }
+
+        fun addNeighor() {
+            if (i < colors.size - 1) {
+                next = LMRRNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawLMRRNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : LMRRNode {
+            var curr : LMRRNode? = prev
+            if (dir == 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
