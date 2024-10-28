@@ -187,4 +187,27 @@ class LineMultiRotRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineMultiRotRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lmrr : LineMultiRotRight = LineMultiRotRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lmrr.draw(canvas, paint)
+            animator.animate {
+                lmrr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lmrr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
