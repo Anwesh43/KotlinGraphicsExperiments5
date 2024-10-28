@@ -42,7 +42,7 @@ fun Canvas.drawLineMultiRotRight(scale : Float, w : Float, h : Float, paint : Pa
     drawXY(w / 2 + (w / 2) * dsc(3), h / 2) {
         for (j in 0..1) {
             drawXY(size + (w / 2) * (1 - dsc(0)), 0f) {
-                rotate(rot * dsc(1))
+                rotate(rot * dsc(1) * j)
                 drawLine(-size, 0f, 0f, 0f, paint)
             }
         }
