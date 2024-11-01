@@ -211,4 +211,13 @@ class OpenSqRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : OpenSqRotRightView {
+            val view : OpenSqRotRightView = OpenSqRotRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
