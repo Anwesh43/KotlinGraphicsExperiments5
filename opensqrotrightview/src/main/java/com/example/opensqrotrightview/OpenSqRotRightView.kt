@@ -186,4 +186,27 @@ class OpenSqRotRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : OpenSqRotRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val osrr : OpenSqRotRight = OpenSqRotRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            osrr.draw(canvas, paint)
+            animator.animate {
+                osrr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            osrr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
