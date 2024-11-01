@@ -206,4 +206,13 @@ class RotSqLeftExpandView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : RotSqLeftExpandView {
+            val view : RotSqLeftExpandView = RotSqLeftExpandView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
