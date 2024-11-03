@@ -214,4 +214,13 @@ class BentLineEitherSideView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BentLineEitherSideView {
+            val view : BentLineEitherSideView = BentLineEitherSideView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
