@@ -44,7 +44,7 @@ fun Canvas.drawBentLineEitherSide(scale : Float, w : Float, h : Float, paint : P
         rotate(deg * dsc(2))
         for (j in 0..1) {
             drawXY(0f, 0f) {
-                scale(1f - 2 * j, 1)
+                scale(1f - 2 * j, 1f)
                 rotate(rot * (1 - dsc(3)))
                 drawXY(size * (1 - dsc(1)), 0f) {
                     drawLine(0f, 0f, 0f, -size * dsc(0), paint)
