@@ -208,4 +208,13 @@ class LineBentSqRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentSqRotView {
+            val view : LineBentSqRotView = LineBentSqRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
