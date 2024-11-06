@@ -183,4 +183,27 @@ class LineBentSqRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Animator(var view : LineBentSqRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lbsr: LineBentSqRot = LineBentSqRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbsr.draw(canvas, paint)
+            animator.animate {
+                lbsr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbsr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
