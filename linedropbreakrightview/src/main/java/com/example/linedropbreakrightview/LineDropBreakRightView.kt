@@ -41,7 +41,7 @@ fun Canvas.drawLineDropBreakRight(scale : Float, w : Float, h : Float, paint : P
         scale.divideScale(it, parts)
     }
     drawXY(w / 2 + (w / 2) * dsc(4), h / 2) {
-        drawXY(0f, -h * 0.5f * (1 - dsc(2))) {
+        drawXY(size, -h * 0.5f * (1 - dsc(2))) {
             rotate(rot * dsc(3))
             drawLine(0f, 0f, 0f, -size, paint)
         }
