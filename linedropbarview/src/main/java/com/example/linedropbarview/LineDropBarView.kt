@@ -187,4 +187,27 @@ class LineDropBarView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDropBarView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ldb : LineDropBar = LineDropBar(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldb.draw(canvas, paint)
+            animator.animate {
+                ldb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
