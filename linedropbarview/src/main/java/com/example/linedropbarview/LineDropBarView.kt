@@ -47,7 +47,7 @@ fun Canvas.drawLineDropBar(scale : Float, w : Float, h : Float, paint : Paint) {
             drawRect(RectF(-barW, -size, 0f, 0f), paint)
         }
         drawXY((w / 2) * dsc(4), 0f) {
-            drawLine(0f, 0f, size, 0f, paint)
+            drawLine(0f, 0f, size * dsc(0), 0f, paint)
         }
     }
 }
