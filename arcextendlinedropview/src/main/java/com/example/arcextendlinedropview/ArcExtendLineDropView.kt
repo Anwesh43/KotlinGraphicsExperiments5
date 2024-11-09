@@ -211,4 +211,13 @@ class ArcExtendLineDropView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcExtendLineDropView {
+            val view : ArcExtendLineDropView = ArcExtendLineDropView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
