@@ -30,10 +30,13 @@
             <option value="$PROJECT_DIR$/linearcrightdownview" />
             <option value="$PROJECT_DIR$/linebentmorearcview" />
             <option value="$PROJECT_DIR$/linebentrottorightview" />
+            <option value="$PROJECT_DIR$/linebentsqrotview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linebreakupdownview" />
             <option value="$PROJECT_DIR$/linedividearccontainview" />
             <option value="$PROJECT_DIR$/linedoublearintoview" />
+            <option value="$PROJECT_DIR$/linedropbarview" />
+            <option value="$PROJECT_DIR$/linedropbreakrightview" />
             <option value="$PROJECT_DIR$/lineextendarcrotview" />
             <option value="$PROJECT_DIR$/linefloordownarcview" />
             <option value="$PROJECT_DIR$/linehalfarcleftview" />
