@@ -44,10 +44,11 @@ fun Canvas.drawSemiArcFullLeft(scale : Float, w : Float, h : Float, paint : Pain
         drawXY(0f, 0f) {
             rotate(rot * dsc(2))
             drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 90f * (dsc(0) + dsc(3)), false, paint)
+            drawXY(size / 2, -size / 2) {
+                drawLine(0f, 0f, 0f, size * 0.5f * dsc(1), paint)
+            }
         }
-        drawXY(size / 2, -size / 2) {
-            drawLine(0f, 0f, 0f, size * 0.5f * dsc(1), paint)
-        }
+
     }
 }
 
@@ -57,6 +58,7 @@ fun Canvas.drawSAFLNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawSemiArcFullLeft(scale, w, h, paint)
 }
 
