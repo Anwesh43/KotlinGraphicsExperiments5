@@ -188,4 +188,27 @@ class LineRotSemiArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotSemiArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val lrsa : LineRotSemiArc = LineRotSemiArc(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrsa.draw(canvas, paint)
+            animator.animate {
+                lrsa.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrsa.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
