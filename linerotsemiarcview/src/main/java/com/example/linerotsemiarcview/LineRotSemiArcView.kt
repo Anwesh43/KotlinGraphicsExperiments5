@@ -44,11 +44,13 @@ fun Canvas.drawLineRotSemiArc(scale : Float, w : Float, h : Float, paint : Paint
     drawXY(w / 2  - (w / 2) * dsc(4), h / 2) {
         drawXY(0f, 0f) {
             rotate(rot * dsc(1))
-            drawArc(RectF(0f, -size / 2, size, size / 2), 180f, rot * dsc(0), false, paint)
+            drawArc(RectF(0f, -size / 2, size, size / 2), 180f, deg * dsc(0), false, paint)
         }
-        drawXY(-w * 0.5f * (1 - dsc(2)), 0f) {
-            rotate(deg * dsc(3))
-            drawLine(0f, 0f, -size, 0f, paint)
+        for (j in 0..1) {
+            drawXY(-w * 0.5f * (1 - dsc(2)), 0f) {
+                rotate(deg * dsc(3) * j)
+                drawLine(0f, 0f, -size, 0f, paint)
+            }
         }
     }
 }
@@ -59,6 +61,7 @@ fun Canvas.drawLRSANode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineRotSemiArc(scale, w, h, paint)
 }
 
