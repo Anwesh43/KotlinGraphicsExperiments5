@@ -211,4 +211,12 @@ class SemiArcFullLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : SemiArcFullLeftView {
+            val view : SemiArcFullLeftView = SemiArcFullLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
