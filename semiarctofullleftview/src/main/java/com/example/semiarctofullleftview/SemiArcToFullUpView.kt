@@ -182,4 +182,27 @@ class SemiArcToFullUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SemiArcToFullUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val safu : SemiArcToFullUp = SemiArcToFullUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            safu.draw(canvas, paint)
+            animator.animate {
+                safu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            safu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
