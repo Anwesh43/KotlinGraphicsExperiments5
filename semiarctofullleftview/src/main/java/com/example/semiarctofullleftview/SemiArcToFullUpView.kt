@@ -207,4 +207,12 @@ class SemiArcToFullUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+    companion object {
+
+        fun create(activity: Activity) : SemiArcToFullUpView {
+            val view : SemiArcToFullUpView = SemiArcToFullUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
