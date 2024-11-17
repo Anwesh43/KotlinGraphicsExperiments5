@@ -42,7 +42,7 @@ fun Canvas.drawRightLineArcIntoRight(scale : Float, w : Float, h : Float, paint 
     }
     drawXY(w / 2, h / 2) {
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
-        drawXY(size, 0) {
+        drawXY(size, 0f) {
             drawLine(0f, 0f, 0f, size * dsc(1), paint)
             drawXY(0f, size) {
                 rotate(rot * dsc(3))
@@ -59,4 +59,20 @@ fun Canvas.drawRLAIRNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawRightLineArcIntoRight(scale, w, h, paint)
+}
+
+class RightLineArcIntoRightView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
