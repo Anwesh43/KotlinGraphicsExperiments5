@@ -40,7 +40,7 @@ fun Canvas.drawRightLineArcIntoRight(scale : Float, w : Float, h : Float, paint 
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2, h / 2) {
+    drawXY(w / 2 + (w / 2) * dsc(4), h / 2) {
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
         drawXY(size, 0f) {
             drawLine(0f, 0f, 0f, size * dsc(1), paint)
@@ -55,7 +55,7 @@ fun Canvas.drawRightLineArcIntoRight(scale : Float, w : Float, h : Float, paint 
 fun Canvas.drawRLAIRNode(i : Int, scale : Float, paint : Paint) {
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
-    paint.color = Color.parseColor("#BDBDBD")
+    paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawRightLineArcIntoRight(scale, w, h, paint)
