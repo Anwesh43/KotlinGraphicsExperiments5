@@ -212,4 +212,13 @@ class RightLineArcIntoRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : RightLineArcIntoRightView {
+            val view : RightLineArcIntoRightView = RightLineArcIntoRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
