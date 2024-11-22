@@ -208,4 +208,13 @@ class LineRotJoinRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineRotJoinRotView {
+            val view : LineRotJoinRotView = LineRotJoinRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
