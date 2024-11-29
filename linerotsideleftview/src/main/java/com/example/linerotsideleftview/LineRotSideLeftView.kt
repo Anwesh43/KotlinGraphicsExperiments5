@@ -7,7 +7,6 @@ import android.content.Context
 import android.graphics.Paint
 import android.graphics.Canvas
 import android.graphics.Color
-import kotlin.math.acos
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -43,7 +42,7 @@ fun Canvas.drawLineRotSideLeft(scale : Float, w : Float, h : Float, paint : Pain
     drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
         rotate(rot * dsc(2))
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
-        drawXY(size + (w / 2 - size) * dsc(0), 0f) {
+        drawXY(size + (w / 2 - size) * (1 - dsc(1)), 0f) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
     }
