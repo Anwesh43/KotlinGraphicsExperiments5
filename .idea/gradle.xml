@@ -32,6 +32,7 @@
             <option value="$PROJECT_DIR$/linebentmorearcview" />
             <option value="$PROJECT_DIR$/linebentrottorightview" />
             <option value="$PROJECT_DIR$/linebentsqrotview" />
+            <option value="$PROJECT_DIR$/linebenttobentview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linebreakupdownview" />
             <option value="$PROJECT_DIR$/linedividearccontainview" />
@@ -48,6 +49,7 @@
             <option value="$PROJECT_DIR$/linerightjoinrotview" />
             <option value="$PROJECT_DIR$/linerotholderupview" />
             <option value="$PROJECT_DIR$/linerotsemiarcview" />
+            <option value="$PROJECT_DIR$/linerotsideleftview" />
             <option value="$PROJECT_DIR$/linerotupleftview" />
             <option value="$PROJECT_DIR$/lineshiftrotjoinview" />
             <option value="$PROJECT_DIR$/lineshiftrotlineview" />
