@@ -7,6 +7,7 @@ import android.content.Context
 import android.graphics.Paint
 import android.graphics.Canvas
 import android.graphics.Color
+import kotlin.math.acos
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -181,6 +182,29 @@ class LineRotSideLeftView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : LineRotSideLeftView) {
+
+        private val lrsl : LineRotSideLeft = LineRotSideLeft(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrsl.draw(canvas, paint)
+            animator.animate {
+                lrsl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrsl.startUpdating {
+                animator.start()
+            }
         }
     }
 }
