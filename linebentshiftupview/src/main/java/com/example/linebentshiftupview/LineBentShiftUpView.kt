@@ -177,4 +177,27 @@ class LineBentShiftUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBentShiftUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lbsu : LineBentShiftUp = LineBentShiftUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbsu.draw(canvas, paint)
+            animator.animate {
+                lbsu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbsu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
