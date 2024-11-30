@@ -202,4 +202,13 @@ class LineBentShiftUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentShiftUpView {
+            val view : LineBentShiftUpView = LineBentShiftUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
