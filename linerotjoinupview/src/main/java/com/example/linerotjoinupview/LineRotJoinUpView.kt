@@ -182,4 +182,27 @@ class LineRotJoinUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotJoinUpView) {
+
+        private val lrju : LineRotJoinUp = LineRotJoinUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrju.draw(canvas, paint)
+            animator.animate {
+                lrju.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrju.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
