@@ -57,3 +57,19 @@ fun Canvas.drawSQJANode(i : Int, scale : Float, paint : Paint) {
     paint.style = Paint.Style.STROKE
     drawSideQuarterJoinArc(scale, w, h, paint)
 }
+
+class SideQuarterJoinArcView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
