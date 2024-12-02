@@ -184,4 +184,27 @@ class SideQuarterJoinArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SideQuarterJoinArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val sqja : SideQuarterJoinArc = SideQuarterJoinArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            sqja.draw(canvas, paint)
+            animator.animate {
+                sqja.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sqja.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
