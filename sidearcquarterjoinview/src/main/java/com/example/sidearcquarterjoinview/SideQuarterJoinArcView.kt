@@ -16,8 +16,8 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 5
-val scGap : Float = 0.04f / parts
+val parts : Int = 6
+val scGap : Float = 0.05f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
@@ -40,11 +40,17 @@ fun Canvas.drawSideQuarterJoinArc(scale : Float, w : Float, h : Float, paint : P
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w / 2) * dsc(4), h / 2) {
+    drawXY(w / 2 + (w / 2) * dsc(5), h / 2) {
         rotate(rot * dsc(3))
-        drawLine(-size, 0f, -size + size * 0.5f * dsc(0), 0f, paint)
+        drawXY(-size / 2, 0f) {
+            rotate(-2 * rot * dsc(4))
+            drawLine(-size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), 0f, paint)
+        }
         drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 180f, 90f * dsc(1), false, paint)
-        drawLine(0f, -size / 2, 0f, -size / 2 - size * 0.5f * dsc(2), paint)
+        drawXY(0f, -size / 2) {
+            rotate(2 * rot * dsc(4))
+            drawLine(0f, 0f, 0f, -size * 0.5f * dsc(2), paint)
+        }
     }
 }
 
