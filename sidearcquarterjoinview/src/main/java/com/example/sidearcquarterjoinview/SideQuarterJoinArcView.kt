@@ -209,4 +209,13 @@ class SideQuarterJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : SideQuarterJoinArcView {
+            val view : SideQuarterJoinArcView = SideQuarterJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
