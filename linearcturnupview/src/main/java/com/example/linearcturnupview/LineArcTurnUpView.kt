@@ -45,7 +45,7 @@ fun Canvas.drawLineArcTurnUp(scale : Float, w : Float, h : Float, paint : Paint)
             rotate(rot * dsc(1))
             drawLine(0f, 0f, 0f, -size * dsc(0), paint)
         }
-        drawArc(RectF(-size, -size, size, size), -90,rot * dsc(1), false, paint)
+        drawArc(RectF(-size, -size, size, size), -90f,rot * dsc(1), false, paint)
         drawLine(0f, 0f, 0f, -size * dsc(2), paint)
     }
 }
@@ -56,6 +56,7 @@ fun Canvas.drawLATUNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineArcTurnUp(scale, w, h, paint)
 }
 
