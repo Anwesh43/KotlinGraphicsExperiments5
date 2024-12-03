@@ -185,4 +185,27 @@ class LineArcTurnUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineArcTurnUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val latu : LineArcTurnUp = LineArcTurnUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            latu.draw(canvas, paint)
+            animator.animate {
+                latu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            latu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
