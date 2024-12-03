@@ -210,4 +210,13 @@ class LineArcTurnUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineArcTurnUpView {
+            val view : LineArcTurnUpView = LineArcTurnUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
