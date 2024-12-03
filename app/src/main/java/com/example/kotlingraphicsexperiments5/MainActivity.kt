@@ -12,12 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.sidearcquarterjoinview.SideQuarterJoinArcView
+import com.example.linearcturnupview.LineArcTurnUpView
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SideQuarterJoinArcView.create(this)
+        LineArcTurnUpView.create(this)
     }
 }
