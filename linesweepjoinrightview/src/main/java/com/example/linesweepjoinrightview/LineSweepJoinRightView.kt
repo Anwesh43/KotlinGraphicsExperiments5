@@ -186,4 +186,27 @@ class LineSweepJoinRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineSweepJoinRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lsjr : LineSweepJoinRight = LineSweepJoinRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lsjr.draw(canvas, paint)
+            animator.animate {
+                lsjr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lsjr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
