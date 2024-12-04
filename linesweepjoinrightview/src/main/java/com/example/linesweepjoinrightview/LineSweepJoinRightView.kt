@@ -211,4 +211,13 @@ class LineSweepJoinRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineSweepJoinRightView {
+            val view : LineSweepJoinRightView = LineSweepJoinRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
