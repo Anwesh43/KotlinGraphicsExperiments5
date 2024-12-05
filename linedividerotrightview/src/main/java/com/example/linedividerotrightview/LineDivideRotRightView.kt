@@ -185,4 +185,27 @@ class LineDivideRotRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDivideRotRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val ldrr : LineDivideRotRight = LineDivideRotRight(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldrr.draw(canvas, paint)
+            animator.animate {
+                ldrr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldrr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
