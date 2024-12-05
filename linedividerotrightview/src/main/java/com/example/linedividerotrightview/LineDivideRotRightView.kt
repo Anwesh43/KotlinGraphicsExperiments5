@@ -122,4 +122,44 @@ class LineDivideRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class LDRRNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : LDRRNode? = null
+        private var prev : LDRRNode? = null
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = LDRRNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawLDRRNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : LDRRNode {
+            var curr : LDRRNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
