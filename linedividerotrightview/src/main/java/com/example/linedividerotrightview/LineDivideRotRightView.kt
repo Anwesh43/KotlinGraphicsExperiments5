@@ -210,4 +210,13 @@ class LineDivideRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDivideRotRightView {
+            val view : LineDivideRotRightView = LineDivideRotRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
