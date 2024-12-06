@@ -187,4 +187,27 @@ class BiArcCenterRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiArcCenterRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val bacr : BiArcCenterRight = BiArcCenterRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bacr.draw(canvas, paint)
+            animator.animate {
+                bacr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bacr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
