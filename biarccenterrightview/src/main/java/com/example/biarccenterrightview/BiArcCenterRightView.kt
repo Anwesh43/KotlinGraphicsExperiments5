@@ -212,4 +212,13 @@ class BiArcCenterRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BiArcCenterRightView {
+            val view : BiArcCenterRightView = BiArcCenterRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
