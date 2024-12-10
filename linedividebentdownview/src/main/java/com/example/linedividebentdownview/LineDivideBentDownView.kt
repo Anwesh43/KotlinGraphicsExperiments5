@@ -210,4 +210,13 @@ class LineDivideBentDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDivideBentDownView {
+            val view : LineDivideBentDownView = LineDivideBentDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
