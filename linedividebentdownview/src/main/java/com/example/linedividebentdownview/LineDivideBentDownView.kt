@@ -185,4 +185,27 @@ class LineDivideBentDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDivideBentDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ldbd : LineDivideBentDown = LineDivideBentDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldbd.draw(canvas, paint)
+            animator.animate {
+                ldbd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldbd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
