@@ -210,4 +210,13 @@ class LineUpBentRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineUpBentRotDownView {
+            val view : LineUpBentRotDownView = LineUpBentRotDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
