@@ -186,4 +186,25 @@ class LineUpBentRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineUpBentRotDownView, private val animator : Animator = Animator(view)) {
+
+        private val lubrd : LineUpBentRotDown = LineUpBentRotDown(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            lubrd.draw(canvas, paint)
+            animator.animate {
+                lubrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lubrd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
