@@ -205,4 +205,13 @@ class LineBentSideRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentSideRightView {
+            val view : LineBentSideRightView = LineBentSideRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
