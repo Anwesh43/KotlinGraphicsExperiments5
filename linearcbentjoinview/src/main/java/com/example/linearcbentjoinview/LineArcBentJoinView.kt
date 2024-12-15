@@ -8,6 +8,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -36,6 +37,7 @@ fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
 }
 
 fun Canvas.drawLineArcBentJoin(scale : Float, w : Float, h : Float, paint : Paint) {
+    Log.d("SCALE", "$scale")
     val size : Float = Math.min(w, h) / sizeFactor
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
@@ -58,6 +60,7 @@ fun Canvas.drawLABJNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineArcBentJoin(scale, w, h, paint)
 }
 
@@ -200,7 +203,7 @@ class LineArcBentJoinView(ctx : Context) : View(ctx) {
             canvas.drawColor(backColor)
             labj.draw(canvas, paint)
             animator.animate {
-                labj.startUpdating {
+                labj.update {
                     animator.stop()
                 }
             }
