@@ -187,4 +187,27 @@ class LineArcBentJoinView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineArcBentJoinView) {
+
+        private val labj : LineArcBentJoin = LineArcBentJoin(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            labj.draw(canvas, paint)
+            animator.animate {
+                labj.startUpdating {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            labj.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
