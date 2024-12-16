@@ -124,4 +124,45 @@ class RightLineJoinShiftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class RLJSNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : RLJSNode? = null
+        private var prev : RLJSNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = RLJSNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawRLJSNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : RLJSNode {
+            var curr : RLJSNode? = prev
+            if (dir == 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
