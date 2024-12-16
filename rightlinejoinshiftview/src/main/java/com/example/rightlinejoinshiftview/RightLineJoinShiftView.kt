@@ -213,4 +213,13 @@ class RightLineJoinShiftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : RightLineJoinShiftView {
+            val view : RightLineJoinShiftView = RightLineJoinShiftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
