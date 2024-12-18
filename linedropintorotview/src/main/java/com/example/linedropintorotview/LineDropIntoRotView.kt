@@ -187,4 +187,27 @@ class LineDropIntoRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDropIntoRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ldir : LineDropIntoRot = LineDropIntoRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldir.draw(canvas, paint)
+            animator.animate {
+                ldir.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldir.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
