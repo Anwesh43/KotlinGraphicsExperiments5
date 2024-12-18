@@ -212,4 +212,13 @@ class LineDropIntoRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDropIntoRotView {
+            val view : LineDropIntoRotView = LineDropIntoRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
