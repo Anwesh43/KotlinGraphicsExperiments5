@@ -186,4 +186,27 @@ class LineMultiRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineMultiRotDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lmrd : LineMultiRotDown = LineMultiRotDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lmrd.draw(canvas, paint)
+            animator.animate {
+                lmrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lmrd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
