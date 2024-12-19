@@ -213,4 +213,13 @@ class LineDropSqBentView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDropSqBentView {
+            val view : LineDropSqBentView = LineDropSqBentView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
