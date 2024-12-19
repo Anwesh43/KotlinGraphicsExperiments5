@@ -188,4 +188,27 @@ class LineDropSqBentView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDropSqBentView) {
+
+        private val animator : Animator = Animator(view)
+        private val ldsb : LineDropSqBent = LineDropSqBent(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldsb.draw(canvas, paint)
+            animator.animate {
+                ldsb.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldsb.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
