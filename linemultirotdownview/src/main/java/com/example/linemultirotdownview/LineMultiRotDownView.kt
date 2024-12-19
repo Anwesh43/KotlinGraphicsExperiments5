@@ -211,4 +211,13 @@ class LineMultiRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineMultiRotDownView {
+            val view : LineMultiRotDownView = LineMultiRotDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
