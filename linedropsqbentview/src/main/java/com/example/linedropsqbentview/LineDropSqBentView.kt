@@ -47,7 +47,7 @@ fun Canvas.drawLineDropSqBent(scale : Float, w : Float, h : Float, paint : Paint
             rotate(rot * dsc(1))
             drawLine(0f, 0f, 0f, -size, paint)
         }
-        drawXY(0f, -h * 0.5f * (1 - dsc(0))) {
+        drawXY(0f, -h * 0.5f * (1 - dsc(2))) {
             drawRect(RectF(-size, -size, 0f, 0f), paint)
         }
     }
