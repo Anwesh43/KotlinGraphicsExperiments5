@@ -211,4 +211,12 @@ class LineGapExtendRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineGapExtendRightView {
+            val view : LineGapExtendRightView = LineGapExtendRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
