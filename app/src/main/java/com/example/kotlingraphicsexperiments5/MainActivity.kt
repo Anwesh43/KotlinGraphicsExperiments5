@@ -12,11 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.linedropsqbentview.LineDropSqBentView
+import com.example.linegapextendrightview.LineGapExtendRightView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LineDropSqBentView.create(this)
+        LineGapExtendRightView.create(this)
     }
 }
