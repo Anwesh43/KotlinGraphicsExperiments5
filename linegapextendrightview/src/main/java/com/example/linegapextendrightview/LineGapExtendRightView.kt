@@ -186,4 +186,27 @@ class LineGapExtendRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineGapExtendRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lger : LineGapExtendRight = LineGapExtendRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lger.draw(canvas, paint)
+            animator.animate {
+                lger.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lger.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
