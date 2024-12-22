@@ -27,3 +27,39 @@ val rot : Float = 90f
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+
+fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
+    save()
+    translate(x, y)
+    cb()
+    restore()
+}
+
+fun Canvas.drawFourQuarterCircle(scale : Float, w : Float, h : Float, paint : Paint) {
+    val size : Float = Math.min(w, h) / sizeFactor
+    val dsc : (Int) -> Float = {
+        scale.divideScale(it, parts)
+    }
+    drawXY(w / 2, h / 2) {
+        for (j in 0..3) {
+            val ix : Int = j % 2
+            val iy : Int = 1 - ix
+            val ia : Int = j / 2
+            val ir : Float = (1f - 2 * ia)
+            drawXY((w / 2 - size) * (1 - dsc(4)) * ir * ix, (h / 2 - size) * (1 - dsc(4)) * ir * iy) {
+                val uSize : Float = size * (1 - dsc(5))
+                drawArc(RectF(0f, -uSize / 2, uSize, uSize / 2), -45f, rot * dsc(j), false, paint)
+            }
+        }
+    }
+}
+
+fun Canvas.drawFQCNode(i : Int, scale : Float, paint : Paint) {
+    val w : Float = width.toFloat()
+    val h : Float = height.toFloat()
+    paint.color = Color.parseColor(colors[i])
+    paint.strokeCap = Paint.Cap.ROUND
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
+    drawFourQuarterCircle(scale, w, h, paint)
+}
