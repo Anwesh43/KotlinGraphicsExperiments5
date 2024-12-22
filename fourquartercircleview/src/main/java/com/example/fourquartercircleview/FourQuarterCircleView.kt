@@ -190,4 +190,27 @@ class FourQuarterCircleView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : FourQuarterCircleView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val fqc : FourQuarterCircle = FourQuarterCircle(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            fqc.draw(canvas, paint)
+            animator.animate {
+                fqc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            fqc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
