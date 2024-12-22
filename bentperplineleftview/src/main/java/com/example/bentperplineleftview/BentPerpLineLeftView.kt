@@ -209,4 +209,13 @@ class BentPerpLineLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BentPerpLineLeftView {
+            val view : BentPerpLineLeftView = BentPerpLineLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
