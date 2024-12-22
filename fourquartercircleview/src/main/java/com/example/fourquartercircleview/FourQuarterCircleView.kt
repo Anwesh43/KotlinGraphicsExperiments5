@@ -214,4 +214,13 @@ class FourQuarterCircleView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : FourQuarterCircleView {
+            val view : FourQuarterCircleView = FourQuarterCircleView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
