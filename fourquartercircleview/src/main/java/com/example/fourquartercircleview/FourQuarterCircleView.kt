@@ -48,7 +48,7 @@ fun Canvas.drawFourQuarterCircle(scale : Float, w : Float, h : Float, paint : Pa
             val ir : Float = (1f - 2 * ia)
             drawXY((w / 2 - size) * (1 - dsc(4)) * ir * iy, (h / 2 - size) * (1 - dsc(4)) * ir * ix) {
                 val uSize : Float = size * (1 - dsc(5))
-                drawArc(RectF(0f, 0f, uSize, uSize), -45f + rot * j, rot * dsc(j), false, paint)
+                drawArc(RectF(-uSize, -uSize, uSize, uSize), -45f + rot * j, rot * dsc(j), false, paint)
             }
         }
     }
