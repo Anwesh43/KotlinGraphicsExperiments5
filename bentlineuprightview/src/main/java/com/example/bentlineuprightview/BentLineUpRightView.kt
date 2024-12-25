@@ -124,4 +124,44 @@ class BentLineUpRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class RLURNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : RLURNode? = null
+        private var prev : RLURNode? = null
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = RLURNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawRLURNode( i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : RLURNode {
+            var curr : RLURNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
