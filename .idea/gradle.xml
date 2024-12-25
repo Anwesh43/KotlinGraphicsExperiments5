@@ -59,7 +59,9 @@
             <option value="$PROJECT_DIR$/linemultirotdownview" />
             <option value="$PROJECT_DIR$/linemultirotleftview" />
             <option value="$PROJECT_DIR$/linemultirotrightview" />
+            <option value="$PROJECT_DIR$/linerectarcleftview" />
             <option value="$PROJECT_DIR$/linerightjoinrotview" />
+            <option value="$PROJECT_DIR$/linerighttshapeview" />
             <option value="$PROJECT_DIR$/linerotholderupview" />
             <option value="$PROJECT_DIR$/linerotjoinupview" />
             <option value="$PROJECT_DIR$/linerotsemiarcview" />
