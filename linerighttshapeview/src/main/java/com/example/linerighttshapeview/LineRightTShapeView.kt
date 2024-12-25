@@ -188,4 +188,27 @@ class LineRightTShapeView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRightTShapeView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrts : LineRightTShape = LineRightTShape(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrts.draw(canvas, paint)
+            animator.animate {
+                lrts.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrts.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
