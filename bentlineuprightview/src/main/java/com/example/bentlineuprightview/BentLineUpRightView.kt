@@ -187,4 +187,27 @@ class BentLineUpRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BentLineUpRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val blur : BentLineUpRight = BentLineUpRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            blur.draw(canvas, paint)
+            animator.animate {
+                blur.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            blur.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
