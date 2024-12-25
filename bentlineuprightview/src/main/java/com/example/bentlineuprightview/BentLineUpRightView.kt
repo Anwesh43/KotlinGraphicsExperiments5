@@ -117,6 +117,7 @@ class BentLineUpRightView(ctx : Context) : View(ctx) {
         fun start() {
             if (!animated) {
                 animated = true
+                view.postInvalidate()
             }
         }
 
