@@ -210,4 +210,12 @@ class LineRightEitherSideView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineRightEitherSideView {
+            val view : LineRightEitherSideView = LineRightEitherSideView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
