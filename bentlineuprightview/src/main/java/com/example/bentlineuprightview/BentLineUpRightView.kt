@@ -15,7 +15,7 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 4
+val parts : Int = 5
 val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
@@ -39,12 +39,12 @@ fun Canvas.drawBentLineUpRight(scale : Float, w : Float, h : Float, paint : Pain
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2, h  / 2) {
+    drawXY(w / 2 + (w / 2) * dsc(4), h  / 2) {
         drawXY(0f, -h * 0.5f * (1 - dsc(0))) {
             rotate(rot * dsc(1))
-            drawLine(0f, 0f, 0f, -size, paint)
+            drawLine(0f, 0f, 0f, -size * Math.sqrt(2.0).toFloat(), paint)
         }
-        drawXY(0f, -h * 0.5f * (1 - dsc(2))) {
+        drawXY(size, -h * 0.5f * (1 - dsc(2))) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
 
