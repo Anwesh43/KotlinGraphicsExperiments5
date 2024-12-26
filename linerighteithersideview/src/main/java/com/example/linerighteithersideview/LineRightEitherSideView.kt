@@ -185,4 +185,27 @@ class LineRightEitherSideView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRightEitherSideView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lres : LineRightEitherSide = LineRightEitherSide(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lres.draw(canvas, paint)
+            animator.animate {
+                lres.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lres.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
