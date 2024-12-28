@@ -219,4 +219,13 @@ class EitherLineRotIntoView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : EitherLineRotIntoView {
+            val view : EitherLineRotIntoView = EitherLineRotIntoView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
