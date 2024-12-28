@@ -194,4 +194,27 @@ class EitherLineRotIntoView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : EitherLineRotIntoView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val elri : EitherLineRotInto = EitherLineRotInto(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            elri.draw(canvas, paint)
+            animator.animate {
+                elri.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            elri.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
