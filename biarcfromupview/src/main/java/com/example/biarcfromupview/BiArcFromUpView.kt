@@ -43,7 +43,7 @@ fun Canvas.drawBiArcFromUp(scale : Float, w : Float, h : Float, paint : Paint) {
     drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
         for (j in 0..1) {
             drawXY(-size + j * size, h * 0.5f * (1 - dsc(1).divideScale(j, 2))) {
-                rotate(rot * (1 - j) * dsc(2))
+                rotate(rot * j * dsc(2))
                 drawArc(RectF(0f, -size / 2, size, size / 2), 180f, rot * dsc(0).divideScale(j, 2), false, paint)
             }
         }
