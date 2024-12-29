@@ -178,4 +178,27 @@ class SqExpandRightUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SqExpandRightUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val seru : SqExpandRightUp = SqExpandRightUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            seru.draw(canvas, paint)
+            animator.animate {
+                seru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            seru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
