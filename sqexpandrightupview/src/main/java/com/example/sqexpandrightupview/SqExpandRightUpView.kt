@@ -39,7 +39,7 @@ fun Canvas.drawSqExpandRightUp(scale : Float, w : Float, h : Float, paint : Pain
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY((w / 2) * dsc(2),  (h / 2) * dsc(1)) {
+    drawXY((w / 2) * dsc(2),  h / 2 + (h / 2) * dsc(1)) {
         rotate(rot * dsc(3))
         drawRect(RectF(0f, -size, size * dsc(0), 0f), paint)
     }
