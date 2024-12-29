@@ -210,4 +210,12 @@ class BiArcFromUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : BiArcFromUpView {
+            val view : BiArcFromUpView = BiArcFromUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
