@@ -185,4 +185,27 @@ class BiArcFromUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiArcFromUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val bafu : BiArcFromUp = BiArcFromUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bafu.draw(canvas, paint)
+            animator.animate {
+                bafu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bafu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
