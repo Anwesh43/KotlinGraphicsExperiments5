@@ -204,4 +204,13 @@ class SqMidRotUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : SqMidRotUpView {
+            val view : SqMidRotUpView = SqMidRotUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
