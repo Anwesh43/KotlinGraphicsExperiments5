@@ -26,6 +26,7 @@
             <option value="$PROJECT_DIR$/bentlineuprightview" />
             <option value="$PROJECT_DIR$/bentperplineleftview" />
             <option value="$PROJECT_DIR$/biarccenterrightview" />
+            <option value="$PROJECT_DIR$/biarcfromupview" />
             <option value="$PROJECT_DIR$/bilinequarterarcview" />
             <option value="$PROJECT_DIR$/completearcfullview" />
             <option value="$PROJECT_DIR$/eitherlinerotintoview" />
@@ -91,6 +92,8 @@
             <option value="$PROJECT_DIR$/sidearcquarterjoinview" />
             <option value="$PROJECT_DIR$/simplelinequarterarcview" />
             <option value="$PROJECT_DIR$/singlerightlinebarview" />
+            <option value="$PROJECT_DIR$/sqexpandrightupview" />
+            <option value="$PROJECT_DIR$/sqmiduprotview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
             <option value="$PROJECT_DIR$/trilinecloseupview" />
           </set>
