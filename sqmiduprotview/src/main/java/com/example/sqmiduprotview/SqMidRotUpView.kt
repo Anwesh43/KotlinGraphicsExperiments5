@@ -179,4 +179,27 @@ class SqMidRotUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SqMidRotUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val smru : SqMidRotUp = SqMidRotUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            smru.draw(canvas, paint)
+            animator.animate {
+                smru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            smru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
