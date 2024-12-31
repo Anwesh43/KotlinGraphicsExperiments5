@@ -210,4 +210,13 @@ class EitherLineBentRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : EitherLineBentRotView {
+            val view : EitherLineBentRotView = EitherLineBentRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
