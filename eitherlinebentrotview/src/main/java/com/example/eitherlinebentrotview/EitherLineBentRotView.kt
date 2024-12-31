@@ -44,7 +44,7 @@ fun Canvas.drawEitherLineBentRot(scale : Float, w : Float, h : Float, paint : Pa
             scale(1f - 2 * j, 1f - 2 * j)
             drawXY((w / 2) * (1 - dsc(2).divideScale(j, 2)), 0f){
                 rotate(rot * dsc(1).divideScale(j, 2))
-                drawLine(0f, 0f, -size * (dsc(j).divideScale(j, 2) - dsc(j + 3).divideScale(j, 2)), 0f, paint)
+                drawLine(0f, 0f, -size * (dsc(0).divideScale(j, 2) - dsc(3).divideScale(j, 2)), 0f, paint)
             }
         }
     }
