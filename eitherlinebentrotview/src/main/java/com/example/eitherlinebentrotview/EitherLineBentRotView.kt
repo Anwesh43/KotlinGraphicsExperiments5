@@ -15,8 +15,8 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 8
-val scGap : Float = 0.06f / parts
+val parts : Int = 4
+val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
@@ -42,9 +42,9 @@ fun Canvas.drawEitherLineBentRot(scale : Float, w : Float, h : Float, paint : Pa
     for (j in 0..1) {
         drawXY(w / 2, h / 2) {
             scale(1f - 2 * j, 1f - 2 * j)
-            drawXY((w / 2) * (1 - dsc(4 * j + 2)), 0f){
-                rotate(rot * dsc(4 * j + 1))
-                drawLine(0f, 0f, -size * (dsc(4 * j) - dsc(4 * j + 3)), 0f, paint)
+            drawXY((w / 2) * (1 - dsc(2).divideScale(j, 2)), 0f){
+                rotate(rot * dsc(1).divideScale(j, 2))
+                drawLine(0f, 0f, -size * (dsc(j).divideScale(j, 2) - dsc(j + 3).divideScale(j, 2)), 0f, paint)
             }
         }
     }
