@@ -162,4 +162,27 @@ class EitherLineBentRotView(ctx : Context) : View(ctx) {
             return this
         }
     }
+
+    data class EitherLineBentRot(var i : Int) {
+
+        var curr : ELBRNode = ELBRNode(0)
+        var dir : Int = 1
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            curr.draw(canvas, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            curr.update {
+                curr = curr.getNext(dir) {
+                    dir *= -1
+                }
+                cb(it)
+            }
+        }
+
+        fun startUpating(cb : () -> Unit) {
+            curr.startUpdating(cb)
+        }
+    }
 }
