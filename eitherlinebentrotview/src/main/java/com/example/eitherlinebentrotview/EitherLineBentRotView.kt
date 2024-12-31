@@ -185,4 +185,27 @@ class EitherLineBentRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : EitherLineBentRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val elbr : EitherLineBentRot = EitherLineBentRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            elbr.draw(canvas, paint)
+            animator.animate {
+                elbr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            elbr.startUpating {
+                animator.start()
+            }
+        }
+    }
 }
