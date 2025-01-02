@@ -180,4 +180,27 @@ class LineFromHalfUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineFromHalfUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lfhu : LineFromHalfUp = LineFromHalfUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lfhu.draw(canvas, paint)
+            animator.animate {
+                lfhu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lfhu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
