@@ -205,4 +205,13 @@ class LineFromHalfUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineFromHalfUpView {
+            val view : LineFromHalfUpView = LineFromHalfUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
