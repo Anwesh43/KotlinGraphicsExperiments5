@@ -39,7 +39,7 @@ fun Canvas.drawLineFromHalfUp(scale : Float, w : Float, h : Float, paint : Paint
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w * dsc(2), h / 4 + (h / 4) * dsc(1) + (h / 2) * dsc(4)) {
+    drawXY(w * 0.5f * dsc(2), h / 4 + (h / 4) * dsc(1) + (h / 2) * dsc(4)) {
         rotate(rot * dsc(3))
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
     }
