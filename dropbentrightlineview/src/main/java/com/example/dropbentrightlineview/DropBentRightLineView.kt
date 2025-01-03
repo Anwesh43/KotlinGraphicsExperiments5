@@ -205,4 +205,13 @@ class DropBentRightLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : DropBentRightLineView {
+            val view : DropBentRightLineView = DropBentRightLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
