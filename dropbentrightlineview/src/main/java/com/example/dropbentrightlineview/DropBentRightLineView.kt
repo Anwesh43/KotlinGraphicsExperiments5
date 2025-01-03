@@ -180,4 +180,27 @@ class DropBentRightLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : DropBentRightLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val dbrl : DropBentRightLine = DropBentRightLine(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            dbrl.draw(canvas, paint)
+            animator.animate {
+                dbrl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            dbrl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
