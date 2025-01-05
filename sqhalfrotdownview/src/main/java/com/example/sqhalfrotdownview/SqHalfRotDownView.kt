@@ -203,4 +203,12 @@ class SqHalfRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : SqHalfRotDownView {
+            val view : SqHalfRotDownView = SqHalfRotDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
