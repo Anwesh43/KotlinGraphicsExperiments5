@@ -178,4 +178,27 @@ class SqHalfRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SqHalfRotDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val shrd : SqHalfRotDown = SqHalfRotDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            shrd.draw(canvas, paint)
+            animator.animate {
+                shrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            shrd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
