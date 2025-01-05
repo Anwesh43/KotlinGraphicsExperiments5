@@ -39,9 +39,9 @@ fun Canvas.drawSqHalfRotDown(scale : Float, w : Float, h : Float, paint : Paint)
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY((w / 2) * dsc(2), -h / 4 + (h / 4) * dsc(1) + (h / 2 + size) * dsc(4)) {
+    drawXY((w / 2 - size / 2) * dsc(2), h / 4 + (h / 4) * dsc(1) + (h / 2 + size) * dsc(4)) {
         rotate(rot * dsc(3))
-        drawRect(RectF(0f, -size, size, 0f), paint)
+        drawRect(RectF(0f, -size, size * dsc(0), 0f), paint)
     }
 }
 
