@@ -180,4 +180,27 @@ class LineLeftRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineLeftRotDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val llrd : LineLeftRotDown = LineLeftRotDown(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            llrd.draw(canvas, paint)
+            animator.animate {
+                llrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            llrd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
