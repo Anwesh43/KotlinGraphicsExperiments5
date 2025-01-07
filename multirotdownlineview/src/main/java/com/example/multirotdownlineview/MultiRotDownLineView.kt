@@ -206,4 +206,12 @@ class MultiRotDownLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : MultiRotDownLineView {
+            val view : MultiRotDownLineView = MultiRotDownLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
