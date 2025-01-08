@@ -211,4 +211,13 @@ class LineBisectStepRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBisectStepRightView {
+            val view : LineBisectStepRightView = LineBisectStepRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
