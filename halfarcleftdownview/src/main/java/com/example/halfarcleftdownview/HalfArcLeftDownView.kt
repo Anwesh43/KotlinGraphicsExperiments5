@@ -207,4 +207,13 @@ class HalfArcLeftDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : HalfArcLeftDownView {
+            val view : HalfArcLeftDownView = HalfArcLeftDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
