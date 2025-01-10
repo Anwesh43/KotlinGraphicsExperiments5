@@ -54,10 +54,10 @@ fun Canvas.drawBiArcJoinRotDown(scale : Float, w : Float, h : Float, paint : Pai
             val ds2j : Float = dsc(1).divideScale(j, 2)
             val ds3j : Float = dsc(2).divideScale(j, 2)
             scaleXY(1f - 2 * j, 1f) {
-                drawXY((w / 2 - size / 2) - (w / 2 - size) * ds2j, 0f) {
+                drawXY((w / 2 - size) * (1 - ds2j), 0f) {
                     rotate(rot * ds3j)
                     drawArc(
-                        RectF(-size / 2, -size / 2, size / 2, size / 2),
+                        RectF(0f, -size / 2, size, size / 2),
                         180f,
                         180f * ds1j,
                         false,
