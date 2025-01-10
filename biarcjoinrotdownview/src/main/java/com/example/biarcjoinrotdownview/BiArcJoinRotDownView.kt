@@ -124,4 +124,45 @@ class BiArcJoinRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class BAJRDNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : BAJRDNode? = null
+        private var prev : BAJRDNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = BAJRDNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawBAJRDNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : BAJRDNode {
+            var curr : BAJRDNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
