@@ -35,6 +35,14 @@ fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
     restore()
 }
 
+fun Canvas.scaleXY(scaleX : Float, scaleY : Float, cb : () -> Unit) {
+    save()
+    translate(0f, 0f)
+    scale(scaleX, scaleY)
+    cb()
+    restore()
+}
+
 fun Canvas.drawBiArcJoinRotDown(scale : Float, w : Float, h : Float, paint : Paint) {
     val size : Float = Math.min(w, h) / sizeFactor
     val dsc : (Int) -> Float = {
@@ -45,9 +53,17 @@ fun Canvas.drawBiArcJoinRotDown(scale : Float, w : Float, h : Float, paint : Pai
             val ds1j : Float = dsc(0).divideScale(j, 2)
             val ds2j : Float = dsc(1).divideScale(j, 2)
             val ds3j : Float = dsc(2).divideScale(j, 2)
-            drawXY((w / 2 - size / 2) * (1 - ds2j), 0f) {
-                rotate(rot * ds3j)
-                drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 180f, 180f * ds1j, false, paint)
+            scaleXY(1f - 2 * j, 1f) {
+                drawXY((w / 2 - size / 2) - (w / 2 - size) * ds2j, 0f) {
+                    rotate(rot * ds3j)
+                    drawArc(
+                        RectF(-size / 2, -size / 2, size / 2, size / 2),
+                        180f,
+                        180f * ds1j,
+                        false,
+                        paint
+                    )
+                }
             }
         }
     }
@@ -59,6 +75,7 @@ fun Canvas.drawBAJRDNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawBiArcJoinRotDown(scale, w, h, paint)
 }
 
