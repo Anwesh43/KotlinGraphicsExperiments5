@@ -178,4 +178,27 @@ class RotLeftSqExpandView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotLeftSqExpandView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val rlse : RotLeftSqExpand = RotLeftSqExpand(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rlse.draw(canvas, paint)
+            animator.animate {
+                rlse.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rlse.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
