@@ -209,4 +209,13 @@ class LineRotHalfDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineRotHalfDownView {
+            val view : LineRotHalfDownView = LineRotHalfDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
