@@ -184,4 +184,27 @@ class LineRotHalfDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotHalfDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrhd : LineRotHalfDown = LineRotHalfDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrhd.draw(canvas, paint)
+            animator.animate {
+                lrhd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrhd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
