@@ -178,4 +178,27 @@ class SqFromCornerDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SqFromCornerDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val sfcd : SqFromCornerDown = SqFromCornerDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            sfcd.draw(canvas, paint)
+            animator.animate {
+                sfcd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sfcd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
