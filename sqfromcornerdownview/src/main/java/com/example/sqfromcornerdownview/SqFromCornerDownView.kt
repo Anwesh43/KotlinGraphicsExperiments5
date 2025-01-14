@@ -203,4 +203,12 @@ class SqFromCornerDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : SqFromCornerDownView {
+            val view : SqFromCornerDownView = SqFromCornerDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
