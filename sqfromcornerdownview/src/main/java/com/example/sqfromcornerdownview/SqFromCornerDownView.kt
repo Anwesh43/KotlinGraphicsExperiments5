@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.graphics.RectF
 import android.content.Context
 import android.app.Activity
+import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -50,4 +51,19 @@ fun Canvas.drawSFCDNode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     paint.color = Color.parseColor(colors[i])
     drawSqFromCornerDown(scale, w, h, paint)
+}
+
+class SqFromCornerDownView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
