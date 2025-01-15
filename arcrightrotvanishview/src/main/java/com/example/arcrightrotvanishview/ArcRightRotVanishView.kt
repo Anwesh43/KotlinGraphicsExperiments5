@@ -182,4 +182,27 @@ class ArcRightRotVanishView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcRightRotVanishView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val arrv : ArcRightRotVanish = ArcRightRotVanish(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            arrv.draw(canvas, paint)
+            animator.animate {
+                arrv.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            arrv.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
