@@ -207,4 +207,13 @@ class ArcRightRotVanishView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcRightRotVanishView {
+            val view : ArcRightRotVanishView = ArcRightRotVanishView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
