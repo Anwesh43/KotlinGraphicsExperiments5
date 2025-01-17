@@ -219,4 +219,13 @@ class EitherArcFromUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : EitherArcFromUpView {
+            val view : EitherArcFromUpView = EitherArcFromUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
