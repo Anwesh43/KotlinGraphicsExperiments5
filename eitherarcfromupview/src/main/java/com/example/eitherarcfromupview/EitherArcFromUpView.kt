@@ -172,7 +172,7 @@ class EitherArcFromUpView(ctx : Context) : View(ctx) {
         }
     }
 
-    data class EitherArcFromUp(var i : Int = 0, val state : State = State()) {
+    data class(var i : Int = 0, val state : State = State()) {
 
         private var curr : EAFUNode = EAFUNode(0)
         private var dir : Int = 1
