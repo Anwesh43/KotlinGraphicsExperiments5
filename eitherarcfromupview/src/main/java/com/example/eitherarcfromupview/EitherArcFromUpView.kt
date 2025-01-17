@@ -172,7 +172,7 @@ class EitherArcFromUpView(ctx : Context) : View(ctx) {
         }
     }
 
-    data class(var i : Int = 0, val state : State = State()) {
+    data class EitherArcFromUp(var i : Int = 0, val state : State = State()) {
 
         private var curr : EAFUNode = EAFUNode(0)
         private var dir : Int = 1
@@ -181,7 +181,7 @@ class EitherArcFromUpView(ctx : Context) : View(ctx) {
             curr.draw(canvas, paint)
         }
 
-        fun udpate(cb : (Float) -> Unit) {
+        fun update(cb : (Float) -> Unit) {
             curr.update {
                 curr = curr.getNext(dir) {
                     dir *= -1
@@ -192,6 +192,29 @@ class EitherArcFromUpView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : EitherArcFromUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val eafu : EitherArcFromUp = EitherArcFromUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            eafu.draw(canvas, paint)
+            animator.animate {
+                eafu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            eafu.startUpdating {
+                animator.start()
+            }
         }
     }
 }
