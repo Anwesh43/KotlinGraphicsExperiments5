@@ -212,4 +212,13 @@ class MidArcDownLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : MidArcDownLeftView {
+            val view : MidArcDownLeftView = MidArcDownLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
