@@ -45,7 +45,7 @@ fun Canvas.drawMidArcDownLeft(scale : Float, w : Float, h : Float, paint : Paint
             drawXY(0f, size / 2 + (h / 2 + size / 2) * dsc(j).divideScale(1, 2)) {
                 scale(1f - 2 * j, 1f)
                 rotate(rot * (1 - j) * dsc(2))
-                drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), 180f, 180f *  dsc(j).divideScale(0, 2), false, paint)
+                drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f *  dsc(j).divideScale(0, 2), false, paint)
             }
         }
     }
