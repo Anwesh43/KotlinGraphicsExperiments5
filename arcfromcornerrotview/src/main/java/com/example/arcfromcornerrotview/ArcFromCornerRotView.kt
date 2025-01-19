@@ -206,4 +206,13 @@ class ArcFromCornerRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcFromCornerRotView {
+            val view : ArcFromCornerRotView = ArcFromCornerRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
