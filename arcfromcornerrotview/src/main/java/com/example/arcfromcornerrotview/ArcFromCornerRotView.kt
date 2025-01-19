@@ -181,4 +181,27 @@ class ArcFromCornerRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcFromCornerRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val afcr : ArcFromCornerRot = ArcFromCornerRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            afcr.draw(canvas, paint)
+            animator.animate {
+                afcr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            afcr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
