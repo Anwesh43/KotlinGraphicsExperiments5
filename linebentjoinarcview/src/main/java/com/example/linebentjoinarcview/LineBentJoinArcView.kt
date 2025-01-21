@@ -210,4 +210,12 @@ class LineBentJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineBentJoinArcView {
+            val view : LineBentJoinArcView = LineBentJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
