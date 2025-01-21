@@ -22,7 +22,7 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 5.4f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
-val rot : Float = 90f
+val rot : Float = 45f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -45,7 +45,7 @@ fun Canvas.drawLineBentJoinArc(scale : Float, w : Float, h : Float, paint : Pain
             rotate(rot * (dsc(1) - dsc(4)))
             drawLine(0f, 0f, size * dsc(0), 0f, paint)
         }
-        drawArc(RectF(0f, -size / 2, size, size / 2), 0f, 180f * dsc(3), false, paint)
+        drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(3), false, paint)
     }
 }
 
