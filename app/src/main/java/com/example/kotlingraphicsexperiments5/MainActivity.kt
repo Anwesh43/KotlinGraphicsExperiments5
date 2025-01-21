@@ -11,13 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.arcfromcornerrotview.ArcFromCornerRotView
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
+import com.example.linebentjoinarcview.LineBentJoinArcView
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ArcFromCornerRotView.create(this)
+        LineBentJoinArcView.create(this)
     }
 }
