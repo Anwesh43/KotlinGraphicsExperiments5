@@ -202,4 +202,13 @@ class SqCornerRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : SqCornerRotDownView {
+            val view : SqCornerRotDownView = SqCornerRotDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
