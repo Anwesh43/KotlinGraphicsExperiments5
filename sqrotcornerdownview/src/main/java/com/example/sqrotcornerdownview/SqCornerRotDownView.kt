@@ -177,4 +177,27 @@ class SqCornerRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SqCornerRotDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val scrd : SqCornerRotDown = SqCornerRotDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            scrd.draw(canvas, paint)
+            animator.animate {
+                scrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            scrd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
