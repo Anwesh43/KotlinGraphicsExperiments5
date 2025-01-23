@@ -12,12 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.linebentjoinarcview.LineBentJoinArcView
+import com.example.sqrotcornerdownview.SqCornerRotDownView
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LineBentJoinArcView.create(this)
+        SqCornerRotDownView.create(this)
     }
 }
