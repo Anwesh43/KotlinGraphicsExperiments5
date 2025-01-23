@@ -96,6 +96,7 @@ class SqCornerRotDownView(ctx : Context) : View(ctx) {
                 cb()
                 try {
                     Thread.sleep(delay)
+                    view.invalidate()
                 } catch(ex : Exception){
 
                 }
