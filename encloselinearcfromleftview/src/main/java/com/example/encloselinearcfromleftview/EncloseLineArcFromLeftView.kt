@@ -8,6 +8,7 @@ import android.graphics.RectF
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Canvas
+import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -58,4 +59,20 @@ fun Canvas.drawELAFLNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     paint.style = Paint.Style.STROKE
     drawEncloseLineArcFromLeft(scale, w, h, paint)
+}
+
+class EncloseLineArcFromLeftView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
