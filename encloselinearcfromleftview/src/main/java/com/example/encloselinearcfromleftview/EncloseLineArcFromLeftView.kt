@@ -187,4 +187,27 @@ class EncloseLineArcFromLeftView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : EncloseLineArcFromLeftView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val elafl : EncloseLineArcFromLeft = EncloseLineArcFromLeft(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            elafl.draw(canvas, paint)
+            animator.animate {
+                elafl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            elafl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
