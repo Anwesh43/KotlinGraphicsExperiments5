@@ -41,8 +41,9 @@ fun Canvas.drawEncloseLineArcFromLeft(scale : Float, w : Float, h : Float, paint
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(0f, h / 2) {
+    drawXY((w / 2) * dsc(4), h / 2) {
         drawXY((w / 2) * (dsc(2).divideScale(1, 2)), 0f) {
+            rotate(rot * dsc(3))
             drawArc(RectF(-size / 2, 0f, size / 2, size), -90f, 180f * dsc(1), false, paint)
         }
         drawXY((w / 2) * (dsc(2)).divideScale(0, 2), 0f) {
