@@ -210,4 +210,12 @@ class ArcCompleteRotUpView(ctx : Context)  : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcCompleteRotUpView {
+            val view : ArcCompleteRotUpView = ArcCompleteRotUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
