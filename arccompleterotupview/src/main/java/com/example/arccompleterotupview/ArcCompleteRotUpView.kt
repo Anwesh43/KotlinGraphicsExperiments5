@@ -44,7 +44,7 @@ fun Canvas.drawArcCompleteRotUp(scale : Float, w : Float, h : Float, paint : Pai
         for (j in 0..1) {
             drawXY((w / 2) * (1 - j) * dsc(2 + j), -h * 0.5f * j * dsc(2 + j)) {
                 rotate(-rot * dsc(1) * j)
-                drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(j), false, paint)
+                drawArc(RectF(0f, -size / 2, size, size / 2), 180f, 180f * dsc(0), false, paint)
             }
         }
     }
@@ -56,6 +56,7 @@ fun Canvas.drawACRUNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawArcCompleteRotUp(scale, w, h, paint)
 }
 
