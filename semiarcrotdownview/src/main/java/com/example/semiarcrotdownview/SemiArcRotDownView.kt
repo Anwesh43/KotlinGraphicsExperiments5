@@ -181,4 +181,27 @@ class SemiArcRotDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SemiArcRotDownView) {
+
+        private val sard : SemiArcRotDown = SemiArcRotDown(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            sard.draw(canvas, paint)
+            animator.animate {
+                sard.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            sard.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
