@@ -58,3 +58,19 @@ fun Canvas.drawACRUNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawArcCompleteRotUp(scale, w, h, paint)
 }
+
+class ArcCompleteRotUpView(ctx : Context)  : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
