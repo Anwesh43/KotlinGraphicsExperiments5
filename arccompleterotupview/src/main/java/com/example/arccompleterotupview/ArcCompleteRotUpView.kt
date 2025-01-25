@@ -185,4 +185,27 @@ class ArcCompleteRotUpView(ctx : Context)  : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcCompleteRotUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val acru : ArcCompleteRotUp = ArcCompleteRotUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            acru.draw(canvas, paint)
+            animator.animate {
+                acru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            acru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
