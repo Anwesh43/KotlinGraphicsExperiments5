@@ -15,13 +15,13 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 4
+val parts : Int = 5
 val scGap : Float = 0.04f / parts
 val sizeFactor : Float = 11.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val rot : Float = 180f
-val deg : Float = 45f
+val deg : Float = 90f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -45,7 +45,7 @@ fun Canvas.drawCrossMultiArcRot(scale : Float, w : Float, h : Float, paint : Pai
                 rotate(deg * j * dsc(2))
                 for (k in 0..1) {
                     rotate(rot * k * dsc(1))
-                    drawCircle(0f, 0f, size * (dsc(0) - dsc(3)), paint)
+                    drawCircle(-size, -size, size * 0.5f * (dsc(0) - dsc(4)), paint)
                 }
             }
         }
