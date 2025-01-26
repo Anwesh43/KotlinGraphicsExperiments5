@@ -185,4 +185,27 @@ class CrossMultiArcRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : CrossMultiArcRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val cmar : CrossMultiArcRot = CrossMultiArcRot(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            cmar.draw(canvas, paint)
+            animator.animate {
+                cmar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            cmar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
