@@ -210,4 +210,13 @@ class CrossMultiArcRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : CrossMultiArcRotView {
+            val view : CrossMultiArcRotView = CrossMultiArcRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
