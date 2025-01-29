@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$/arcrightrotvanishview" />
             <option value="$PROJECT_DIR$/arcrotdroplineview" />
             <option value="$PROJECT_DIR$/arcrotupdownview" />
+            <option value="$PROJECT_DIR$/arcsweeplinedropview" />
             <option value="$PROJECT_DIR$/arctouprotview" />
             <option value="$PROJECT_DIR$/baruprotdownview" />
             <option value="$PROJECT_DIR$/bentlineeithersideview" />
@@ -33,6 +34,7 @@
             <option value="$PROJECT_DIR$/biarcjoinrotdownview" />
             <option value="$PROJECT_DIR$/bilinequarterarcview" />
             <option value="$PROJECT_DIR$/completearcfullview" />
+            <option value="$PROJECT_DIR$/crossmultiarcrotview" />
             <option value="$PROJECT_DIR$/dropbentrightlineview" />
             <option value="$PROJECT_DIR$/eitherarcfromupview" />
             <option value="$PROJECT_DIR$/eitherlinebentrotview" />
