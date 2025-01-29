@@ -184,4 +184,27 @@ class ArcSweepLineDropView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcSweepLineDropView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val asld : ArcSweepLineDrop = ArcSweepLineDrop(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            asld.draw(canvas, paint)
+            animator.animate {
+                asld.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            asld.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
