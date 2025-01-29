@@ -209,4 +209,13 @@ class ArcSweepLineDropView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcSweepLineDropView {
+            val view : ArcSweepLineDropView = ArcSweepLineDropView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
