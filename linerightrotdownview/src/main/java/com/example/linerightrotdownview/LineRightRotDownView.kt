@@ -210,4 +210,13 @@ class LineRightRotDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineRightRotDownView {
+            val view : LineRightRotDownView = LineRightRotDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
