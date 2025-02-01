@@ -39,7 +39,7 @@ fun Canvas.drawLineRightRotDown(scale : Float, w : Float, h : Float, paint : Pai
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2, h / 2 - (h / 2) * dsc(3)) {
+    drawXY(w / 2, h / 2 + (h / 2) * dsc(3)) {
         rotate(rot * dsc(2))
         drawXY(-w * 0.5f * (1 - dsc(1)), 0f) {
             drawLine(0f, 0f, size * dsc(0).divideScale(0, 2), 0f, paint)
