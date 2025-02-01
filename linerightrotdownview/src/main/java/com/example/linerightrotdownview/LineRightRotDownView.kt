@@ -58,3 +58,19 @@ fun Canvas.drawLRRDNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineRightRotDown(scale, w, h, paint)
 }
+
+class LineRightRotDownView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(motionEvent : MotionEvent) : Boolean {
+        when (motionEvent.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
