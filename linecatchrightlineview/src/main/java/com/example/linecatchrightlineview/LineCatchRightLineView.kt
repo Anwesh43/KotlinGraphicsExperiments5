@@ -185,4 +185,27 @@ class LineCatchRightLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineCatchRightLineView) {
+
+        private val animator : Animator = Animator(view)
+        private val lcrl : LineCatchRightLine = LineCatchRightLine(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lcrl.draw(canvas, paint)
+            animator.animate {
+                lcrl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lcrl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
