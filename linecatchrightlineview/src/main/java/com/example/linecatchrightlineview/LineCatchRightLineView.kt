@@ -210,4 +210,12 @@ class LineCatchRightLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineCatchRightLineView {
+            val view : LineCatchRightLineView = LineCatchRightLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
