@@ -58,6 +58,7 @@
             <option value="$PROJECT_DIR$/linebisectsteprightview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linebreakupdownview" />
+            <option value="$PROJECT_DIR$/linecatchrightlineview" />
             <option value="$PROJECT_DIR$/linedividearccontainview" />
             <option value="$PROJECT_DIR$/linedividebentdownview" />
             <option value="$PROJECT_DIR$/linedividerotrightview" />
@@ -80,6 +81,7 @@
             <option value="$PROJECT_DIR$/linerectarcleftview" />
             <option value="$PROJECT_DIR$/linerighteithersideview" />
             <option value="$PROJECT_DIR$/linerightjoinrotview" />
+            <option value="$PROJECT_DIR$/linerightrotdownview" />
             <option value="$PROJECT_DIR$/linerighttshapeview" />
             <option value="$PROJECT_DIR$/linerothalfdownview" />
             <option value="$PROJECT_DIR$/linerotholderupview" />
