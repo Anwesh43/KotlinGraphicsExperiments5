@@ -183,4 +183,27 @@ class LineRotIncreasePointView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRotIncreasePointView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrip : LineRotIncreasePoint = LineRotIncreasePoint(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrip.draw(canvas, paint)
+            animator.animate {
+                lrip.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrip.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
