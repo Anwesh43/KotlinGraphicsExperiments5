@@ -208,4 +208,12 @@ class LineRotIncreasePointView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineRotIncreasePointView {
+            val view : LineRotIncreasePointView = LineRotIncreasePointView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
