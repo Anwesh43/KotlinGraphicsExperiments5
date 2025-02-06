@@ -46,7 +46,7 @@ fun Canvas.drawArcSideBentLine(scale : Float, w : Float, h : Float, paint : Pain
                 scale(1f, 1f - 2 * j)
                 drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f, 90f * dsc(0), false, paint)
                 drawXY(0f, -size / 2) {
-                    rotate(rot * (1 - dsc(2)))
+                    rotate(-rot * (1 - dsc(2)))
                     drawLine(0f, 0f, size * dsc(1), 0f, paint)
                 }
             }
@@ -60,6 +60,7 @@ fun Canvas.drawASBLNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawArcSideBentLine(scale, w, h, paint)
 }
 
