@@ -125,4 +125,45 @@ class ArcSideBentLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class ASBLNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : ASBLNode? = null
+        private var prev : ASBLNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = ASBLNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawASBLNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb: () -> Unit) : ASBLNode {
+            var curr : ASBLNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
