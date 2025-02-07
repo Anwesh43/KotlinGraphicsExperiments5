@@ -208,4 +208,13 @@ class BiLineTurnUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BiLineTurnUpView {
+            val view : BiLineTurnUpView = BiLineTurnUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
