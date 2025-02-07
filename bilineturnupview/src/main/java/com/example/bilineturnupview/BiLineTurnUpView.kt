@@ -183,4 +183,27 @@ class BiLineTurnUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : BiLineTurnUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val bltu : BiLineTurnUp = BiLineTurnUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bltu.draw(canvas, paint)
+            animator.animate {
+                bltu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bltu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
