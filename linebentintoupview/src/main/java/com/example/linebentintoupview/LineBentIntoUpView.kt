@@ -183,4 +183,27 @@ class LineBentIntoUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBentIntoUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val lbiu : LineBentIntoUp = LineBentIntoUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbiu.draw(canvas, paint)
+            animator.animate {
+                lbiu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbiu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
