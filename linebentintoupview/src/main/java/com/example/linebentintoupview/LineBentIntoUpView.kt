@@ -208,4 +208,13 @@ class LineBentIntoUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentIntoUpView {
+            val view : LineBentIntoUpView = LineBentIntoUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
