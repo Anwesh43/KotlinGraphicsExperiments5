@@ -207,4 +207,12 @@ class ArcPartLeftRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcPartLeftRightView {
+            val view : ArcPartLeftRightView = ArcPartLeftRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
