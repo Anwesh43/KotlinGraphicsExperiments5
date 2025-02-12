@@ -182,4 +182,27 @@ class ArcPartLeftRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcPartLeftRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val aplr : ArcPartLeftRight = ArcPartLeftRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aplr.draw(canvas, paint)
+            animator.animate {
+                aplr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aplr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
