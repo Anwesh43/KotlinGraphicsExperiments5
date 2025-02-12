@@ -22,7 +22,37 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
+val rot : Float = 90f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+
+fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
+    save()
+    translate(x, y)
+    cb()
+    restore()
+}
+
+fun Canvas.drawLineRotArcRight(scale : Float, w : Float, h : Float, paint : Paint) {
+    val size : Float = Math.min(w, h) / sizeFactor
+    val dsc : (Int) -> Float = {
+        scale.divideScale(it, parts)
+    }
+    drawXY(w * 0.5f * dsc(2), h / 2) {
+        val dsc31 : Float = dsc(3).divideScale(0, 2)
+        val dsc32 : Float = dsc(3).divideScale(1, 2)
+        drawLine(size * dsc31, 0f, size * dsc(0), 0f, paint)
+        drawArc(RectF(-size, -size, size, size), rot * dsc32, rot * (dsc(1) - dsc32), false, paint)
+    }
+}
+
+fun Canvas.drawLRARNode(i : Int, scale : Float, paint : Paint) {
+    val w : Float = width.toFloat()
+    val h : Float = height.toFloat()
+    paint.color = Color.parseColor(colors[i])
+    paint.strokeCap = Paint.Cap.ROUND
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
+    drawLineRotArcRight(scale, w, h, paint)
+}
