@@ -186,4 +186,27 @@ class ArcLeftSqUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcLeftSqUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val alsu : ArcLeftSqUp = ArcLeftSqUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            alsu.draw(canvas, paint)
+            animator.animate {
+                alsu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            alsu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
