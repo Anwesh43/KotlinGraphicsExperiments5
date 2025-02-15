@@ -211,4 +211,13 @@ class ArcLeftSqUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcLeftSqUpView {
+            val view : ArcLeftSqUpView = ArcLeftSqUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
