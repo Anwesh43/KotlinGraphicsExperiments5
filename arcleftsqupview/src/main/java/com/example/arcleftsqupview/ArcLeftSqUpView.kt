@@ -44,9 +44,9 @@ fun Canvas.drawArcLeftSqUp(scale : Float, w : Float, h : Float, paint : Paint) {
         drawXY(0f, -h * 0.5f * (1 - dsc(0).divideScale(1, 2))) {
             drawRect(RectF(0f, 0f, size * dsc(0).divideScale(0, 2), size), paint)
         }
-        drawXY(-w / 2 + (w / 2 - size / 2) * dsc(1).divideScale(1, 2), 0f) {
+        drawXY(-w / 2 + (w / 2) * dsc(1).divideScale(1, 2), 0f) {
             rotate(rot * dsc(2))
-            drawArc(RectF(0f, -size, size, 0f), 90f, 180f * dsc(1).divideScale(0, 2), true, paint)
+            drawArc(RectF(-size * 0.5f * dsc(1).divideScale(1, 2), -size, -size * 0.5f * dsc(1).divideScale(1, 2) + size, 0f), 90f, 180f * dsc(1).divideScale(0, 2), true, paint)
         }
     }
 }
