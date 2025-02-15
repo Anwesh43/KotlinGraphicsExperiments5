@@ -217,4 +217,12 @@ class ArcLineMoveCenterView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : ArcLineMoveCenterView {
+            val view : ArcLineMoveCenterView = ArcLineMoveCenterView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
