@@ -16,7 +16,7 @@ val colors : Array<String> = arrayOf(
     "#00C853"
 )
 val parts : Int = 4
-val scGap : Float = 0.04f
+val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
@@ -203,6 +203,15 @@ class BentLineRightView(ctx : Context) : View(ctx) {
             blr.startUpdating {
                 animator.start()
             }
+        }
+    }
+
+    companion object {
+
+        fun create(activity: Activity) : BentLineRightView {
+            val view : BentLineRightView = BentLineRightView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
