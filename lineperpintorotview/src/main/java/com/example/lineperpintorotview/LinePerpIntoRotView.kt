@@ -185,4 +185,27 @@ class LinePerpIntoRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LinePerpIntoRotView) {
+
+        private val lpir : LinePerpIntoRot = LinePerpIntoRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lpir.draw(canvas, paint)
+            animator.animate {
+                lpir.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lpir.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
