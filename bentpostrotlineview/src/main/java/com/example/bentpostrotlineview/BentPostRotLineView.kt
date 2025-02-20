@@ -39,7 +39,7 @@ fun Canvas.drawBentPostLine(scale : Float, w : Float, h : Float, paint : Paint) 
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w / 2) * dsc(3) - w * dsc(4), h / 2) {
+    drawXY(w / 2 + (w / 2) * dsc(3) - (w + size) * dsc(4), h / 2) {
         rotate(rot * (dsc(1) - dsc(3)))
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
     }
