@@ -211,4 +211,11 @@ class LineUpSqDownBentView(ctx : Context) : View(ctx) {
             }
         }
     }
+    companion object {
+        fun create(activity: Activity) : LineUpSqDownBentView {
+            val view : LineUpSqDownBentView = LineUpSqDownBentView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
