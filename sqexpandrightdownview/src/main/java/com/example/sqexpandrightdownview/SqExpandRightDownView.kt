@@ -114,4 +114,45 @@ class SqExpandRightDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class SERDNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : SERDNode? = null
+        private var prev : SERDNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = SERDNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawSERDNode(i, state.scale, paint)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : SERDNode {
+            var curr : SERDNode? = prev
+            if (dir === 1) {
+                curr = this.next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
