@@ -203,4 +203,12 @@ class SqExpandRightDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : SqExpandRightDownView {
+            val view : SqExpandRightDownView = SqExpandRightDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
