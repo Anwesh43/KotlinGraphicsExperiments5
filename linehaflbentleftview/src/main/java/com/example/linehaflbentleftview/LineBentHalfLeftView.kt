@@ -205,4 +205,13 @@ class LineBentHalfLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentHalfLeftView {
+            val view : LineBentHalfLeftView = LineBentHalfLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
