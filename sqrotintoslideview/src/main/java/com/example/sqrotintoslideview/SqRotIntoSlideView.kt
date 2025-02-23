@@ -206,4 +206,13 @@ class SqRotIntoSlideView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : SqRotIntoSlideView {
+            val view : SqRotIntoSlideView = SqRotIntoSlideView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
