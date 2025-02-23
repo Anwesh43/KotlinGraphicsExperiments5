@@ -40,9 +40,11 @@ fun Canvas.drawLineBentHalfLeft(scale : Float, w : Float, h : Float, paint : Pai
         scale.divideScale(it, parts)
     }
     drawXY(w / 2 - (w / 2) * dsc(3), h / 2) {
-        rotate(rot * dsc(2))
         drawLine(0f, -size, 0f, -size + size * dsc(0), paint)
-        drawLine(0f, 0f, size * dsc(1), 0f, paint)
+        drawXY(0f, 0f) {
+            rotate(rot * dsc(2))
+            drawLine(0f, 0f, size * dsc(1), 0f, paint)
+        }
     }
 }
 
