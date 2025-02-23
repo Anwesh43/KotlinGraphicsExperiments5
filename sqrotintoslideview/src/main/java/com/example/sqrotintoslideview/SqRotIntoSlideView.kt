@@ -42,7 +42,7 @@ fun Canvas.drawSqRotIntoSlide(scale : Float, w : Float, h : Float, paint : Paint
     drawXY((w / 2) * dsc(1), h / 2 - h * 0.5f * dsc(3)) {
         for (j in 0..1) {
             drawXY(0f, 0f) {
-                rotate(rot * dsc(2) * (2 * j - 1) * 2 * j)
+                rotate(rot * dsc(2) * (2 * j - 1) * (1 + j))
                 drawRect(RectF(0f, 0f, size, size * dsc(0)), paint)
             }
         }
