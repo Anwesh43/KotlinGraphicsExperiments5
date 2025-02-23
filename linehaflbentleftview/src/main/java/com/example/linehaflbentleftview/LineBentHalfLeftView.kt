@@ -117,4 +117,44 @@ class LineBentHalfLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class LBHLNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : LBHLNode? = null
+        private var prev : LBHLNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = LBHLNode(i + 1)
+                next?.prev = this
+            }
+        }
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawLBHLNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : LBHLNode {
+            var curr : LBHLNode? = prev
+            if (dir === 1) {
+                curr = this.next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
