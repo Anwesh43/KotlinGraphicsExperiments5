@@ -49,7 +49,7 @@ fun Canvas.drawLineBentHalfLeft(scale : Float, w : Float, h : Float, paint : Pai
 fun Canvas.drawLBHLNode(i : Int, scale : Float, paint : Paint) {
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
-    paint.color = Color.parseColor("#BDBDBD")
+    paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineBentHalfLeft(scale, w, h, paint)
