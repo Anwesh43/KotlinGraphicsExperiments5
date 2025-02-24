@@ -119,6 +119,7 @@
             <option value="$PROJECT_DIR$/rightlinejoinshiftview" />
             <option value="$PROJECT_DIR$/rotleftsqexpandview" />
             <option value="$PROJECT_DIR$/rotsqleftexpandview" />
+            <option value="$PROJECT_DIR$/rottrijoinrightview" />
             <option value="$PROJECT_DIR$/semiarcfullleftview" />
             <option value="$PROJECT_DIR$/semiarcrotdownview" />
             <option value="$PROJECT_DIR$/semiarcrotlineview" />
@@ -133,6 +134,7 @@
             <option value="$PROJECT_DIR$/sqhalfrotdownview" />
             <option value="$PROJECT_DIR$/sqmiduprotview" />
             <option value="$PROJECT_DIR$/sqrotcornerdownview" />
+            <option value="$PROJECT_DIR$/sqrotintoslideview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
             <option value="$PROJECT_DIR$/trilinecloseupview" />
           </set>
