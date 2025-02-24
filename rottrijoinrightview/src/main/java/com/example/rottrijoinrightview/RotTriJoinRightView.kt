@@ -186,4 +186,27 @@ class RotTriJoinRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotTriJoinRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val rtjr : RotTriJoinRight = RotTriJoinRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rtjr.draw(canvas, paint)
+            animator.animate {
+                rtjr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rtjr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
