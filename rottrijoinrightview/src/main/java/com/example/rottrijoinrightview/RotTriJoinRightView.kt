@@ -211,4 +211,12 @@ class RotTriJoinRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : RotTriJoinRightView {
+            val view : RotTriJoinRightView = RotTriJoinRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
