@@ -181,4 +181,27 @@ class BarHalfArcSweepLeftView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : View, var animated : Boolean = false) {
+
+        private val bhasl : BarHalfArcSweepLeft = BarHalfArcSweepLeft(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bhasl.draw(canvas, paint)
+            animator.animate {
+                bhasl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bhasl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
