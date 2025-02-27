@@ -40,8 +40,8 @@ fun Canvas.drawBarHalfSweepLeft(scale : Float, w : Float, h : Float, paint : Pai
         scale.divideScale(it, parts)
     }
     drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
-        rotate(rot * dsc(2))
         drawXY(-w / 2 + (w / 2) * dsc(1), 0f) {
+            rotate(rot * dsc(2))
             drawRect(RectF(0f, 0f, size, size * dsc(0)), paint)
         }
         drawArc(RectF(-size, -size / 2, 0f, size / 2), 180f, 180f * dsc(3), true, paint)
