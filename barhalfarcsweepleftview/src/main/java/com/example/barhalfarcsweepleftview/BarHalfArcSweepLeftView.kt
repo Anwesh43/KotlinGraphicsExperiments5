@@ -206,4 +206,13 @@ class BarHalfArcSweepLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BarHalfArcSweepLeftView {
+            val view : BarHalfArcSweepLeftView = BarHalfArcSweepLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
