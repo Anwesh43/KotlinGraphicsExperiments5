@@ -183,4 +183,27 @@ class LineFirstBentExpandView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineFirstBentExpandView) {
+
+        private val animator : Animator = Animator(view)
+        private val lfbe : LineFirstBentExpand = LineFirstBentExpand(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lfbe.draw(canvas, paint)
+            animator.animate {
+                lfbe.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lfbe.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
