@@ -11,13 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.barhalfarcsweepleftview.BarHalfArcSweepLeftView
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
+import com.example.linefirstbentexpandview.LineFirstBentExpandView
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        BarHalfArcSweepLeftView.create(this)
+        LineFirstBentExpandView.create(this)
     }
 }
