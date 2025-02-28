@@ -208,4 +208,12 @@ class LineFirstBentExpandView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineFirstBentExpandView {
+            val view :LineFirstBentExpandView = LineFirstBentExpandView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
