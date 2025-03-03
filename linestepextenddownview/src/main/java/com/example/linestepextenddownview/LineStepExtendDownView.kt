@@ -215,4 +215,13 @@ class LineStepExtendDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineStepExtendDownView {
+            val view : LineStepExtendDownView = LineStepExtendDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
