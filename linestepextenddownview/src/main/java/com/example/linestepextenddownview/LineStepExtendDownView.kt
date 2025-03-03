@@ -190,4 +190,27 @@ class LineStepExtendDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineStepExtendDownView) {
+
+        private val lsed : LineStepExtendDown = LineStepExtendDown(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lsed.draw(canvas, paint)
+            animator.animate {
+                lsed.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lsed.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
