@@ -184,4 +184,27 @@ class LineBentHoldRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBentHoldRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lbhr : LineBentHoldRight = LineBentHoldRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbhr.draw(canvas, paint)
+            animator.animate {
+                lbhr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbhr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
