@@ -120,4 +120,45 @@ class LineArcRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class LARRNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : LARRNode? = null
+        private var prev : LARRNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = LARRNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawLARRNode(i, state.scale, paint)
+        }
+
+        fun udpate(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : LARRNode {
+            var curr : LARRNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
