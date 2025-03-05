@@ -209,4 +209,12 @@ class LineBentHoldRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineBentHoldRightView {
+            val view : LineBentHoldRightView = LineBentHoldRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
