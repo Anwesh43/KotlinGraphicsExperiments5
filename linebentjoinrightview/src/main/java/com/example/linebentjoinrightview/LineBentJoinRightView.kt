@@ -209,4 +209,13 @@ class LineBentJoinRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentJoinRightView {
+            val view : LineBentJoinRightView = LineBentJoinRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
