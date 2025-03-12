@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.app.Activity
 import android.content.Context
+import androidx.constraintlayout.widget.ConstraintSet.Motion
 
 val colors : Array<String> = arrayOf(
     "#1A237E",
@@ -55,4 +56,20 @@ fun Canvas.drawLBJRNode(i : Int, scale : Float, paint : Paint) {
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineBentJoinRight(scale, w, h, paint)
+}
+
+class LineBentJoinRightView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
 }
