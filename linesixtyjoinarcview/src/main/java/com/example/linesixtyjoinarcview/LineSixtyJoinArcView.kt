@@ -47,7 +47,7 @@ fun Canvas.drawLineSixtyJoinArc(scale : Float, w : Float, h : Float, paint : Pai
         }
         drawArc(RectF(-size, -size, size, size), -rot + rot * dsc(3), rot * (dsc(1) - dsc(3)), false, paint)
         drawXY(0f, 0f) {
-            drawLine(0f, 0f, size * dsc(2), 0f, paint)
+            drawLine(size * (1 - dsc(2)), 0f, size, 0f, paint)
         }
     }
 }
