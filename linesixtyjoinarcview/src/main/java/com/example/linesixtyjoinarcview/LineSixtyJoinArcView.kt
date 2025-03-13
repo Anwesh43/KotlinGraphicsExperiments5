@@ -213,4 +213,13 @@ class LineSixtyJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineSixtyJoinArcView {
+            val view : LineSixtyJoinArcView = LineSixtyJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
