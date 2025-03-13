@@ -188,4 +188,27 @@ class LineSixtyJoinArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineSixtyJoinArcView) {
+
+        private val lsja : LineSixtyJoinArc = LineSixtyJoinArc(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lsja.draw(canvas, paint)
+            animator.animate {
+                lsja.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lsja.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
