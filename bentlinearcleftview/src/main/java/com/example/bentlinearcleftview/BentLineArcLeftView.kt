@@ -24,6 +24,7 @@ val sizeFactor : Float = 5.9f
 val delay : Long = 20
 val rot : Float = -90f
 val deg : Float = 45f
+val backColor : Int = Color.parseColor("#BDBDBD")
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -185,6 +186,29 @@ class BentLineArcLeftView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : BentLineArcLeftView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val blal : BentLineArcLeft = BentLineArcLeft(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            blal.draw(canvas, paint)
+            animator.animate {
+                blal.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            blal.startUpdating {
+                animator.start()
+            }
         }
     }
 }
