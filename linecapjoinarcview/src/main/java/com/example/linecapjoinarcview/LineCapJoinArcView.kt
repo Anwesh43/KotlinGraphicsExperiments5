@@ -213,4 +213,12 @@ class LineCapJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : LineCapJoinArcView {
+            val view : LineCapJoinArcView = LineCapJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
