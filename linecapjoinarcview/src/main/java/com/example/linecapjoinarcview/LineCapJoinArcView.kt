@@ -188,4 +188,27 @@ class LineCapJoinArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineCapJoinArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lcja : LineCapJoinArc = LineCapJoinArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lcja.draw(canvas, paint)
+            animator.animate {
+                lcja.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lcja.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
