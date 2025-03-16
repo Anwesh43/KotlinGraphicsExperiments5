@@ -207,4 +207,13 @@ class UpJoinArcRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : UpJoinArcRightView {
+            val view : UpJoinArcRightView = UpJoinArcRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
