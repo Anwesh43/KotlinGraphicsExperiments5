@@ -72,6 +72,7 @@
             <option value="$PROJECT_DIR$/linebisectsteprightview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
             <option value="$PROJECT_DIR$/linebreakupdownview" />
+            <option value="$PROJECT_DIR$/linecapjoinarcview" />
             <option value="$PROJECT_DIR$/linecatchrightlineview" />
             <option value="$PROJECT_DIR$/linedividearccontainview" />
             <option value="$PROJECT_DIR$/linedividebentdownview" />
@@ -146,6 +147,7 @@
             <option value="$PROJECT_DIR$/sqrotintoslideview" />
             <option value="$PROJECT_DIR$/triarcjoinrotview" />
             <option value="$PROJECT_DIR$/trilinecloseupview" />
+            <option value="$PROJECT_DIR$/upjoinarcrightview" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
