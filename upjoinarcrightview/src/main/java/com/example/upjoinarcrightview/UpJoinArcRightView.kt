@@ -182,4 +182,27 @@ class UpJoinArcRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : UpJoinArcRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ujar : UpJoinArcRight = UpJoinArcRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ujar.draw(canvas, paint)
+            animator.animate {
+                ujar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ujar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
