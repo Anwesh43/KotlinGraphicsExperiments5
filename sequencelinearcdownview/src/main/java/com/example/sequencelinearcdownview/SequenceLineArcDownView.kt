@@ -188,4 +188,27 @@ class SequenceLineArcDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : SequenceLineArcDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val slad : SequenceLineArcDown = SequenceLineArcDown(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            slad.draw(canvas, paint)
+            animator.animate {
+                slad.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            slad.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
