@@ -213,4 +213,12 @@ class SequenceLineArcDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : SequenceLineArcDownView {
+            val view : SequenceLineArcDownView = SequenceLineArcDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
