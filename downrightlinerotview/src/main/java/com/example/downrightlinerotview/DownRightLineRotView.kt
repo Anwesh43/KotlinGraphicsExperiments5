@@ -182,5 +182,28 @@ class DownRightLineRotView(ctx : Context) : View(ctx) {
                 curr.startUpdating(cb)
             }
         }
+
+        data class Renderer(var view : DownRightLineRotView) {
+
+            private val animator : Animator = Animator(view)
+            private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+            private val drlr : DownRightLineRot = DownRightLineRot(0)
+
+            fun render(canvas : Canvas) {
+                canvas.drawColor(backColor)
+                drlr.draw(canvas, paint)
+                animator.animate {
+                    drlr.update {
+                        animator.stop()
+                    }
+                }
+            }
+
+            fun handleTap() {
+                drlr.startUpdating {
+                    animator.start()
+                }
+            }
+        }
     }
 }
