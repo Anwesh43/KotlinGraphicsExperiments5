@@ -41,7 +41,7 @@ fun Canvas.drawDownRightLineRot(scale : Float, w : Float, h : Float, paint : Pai
     }
     drawXY(w * 0.5f * dsc(3), h / 2 + (h * 0.5f * dsc(4))) {
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
-        drawXY(0f, -h * 0.5f * (1 - dsc(1))) {
+        drawXY(size, -h * 0.5f * (1 - dsc(1))) {
             rotate(rot * dsc(2))
             drawLine(0f, 0f, 0f, -size, paint)
         }
