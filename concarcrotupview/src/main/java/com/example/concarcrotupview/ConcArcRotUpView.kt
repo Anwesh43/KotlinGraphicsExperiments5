@@ -186,4 +186,27 @@ class ConcArcRotUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ConcArcRotUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val caru : ConcArcRotUp = ConcArcRotUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            caru.draw(canvas, paint)
+            animator.animate {
+                caru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            caru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
