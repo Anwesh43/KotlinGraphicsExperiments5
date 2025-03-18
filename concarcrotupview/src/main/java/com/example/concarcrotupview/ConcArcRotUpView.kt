@@ -72,5 +72,6 @@ class ConcArcRotUpView(ctx : Context) : View(ctx) {
 
             }
         }
+        return true
     }
 }
