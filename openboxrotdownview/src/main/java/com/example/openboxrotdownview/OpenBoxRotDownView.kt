@@ -45,9 +45,11 @@ fun Canvas.drawOpenBoxRotDown(scale : Float, w : Float, h : Float, paint : Paint
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 scale(1f, 1f - 2 * j)
-                drawXY(size / 2, size / 2) {
-                    rotate(rot * dsc(1))
-                    drawLine(-size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), 0f, paint)
+                for (k in 0..1) {
+                    drawXY(size / 2, size / 2) {
+                        rotate(rot * dsc(1) * k)
+                        drawLine(-size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), 0f, paint)
+                    }
                 }
             }
         }
