@@ -46,7 +46,7 @@ fun Canvas.drawConcArcRotUp(scale : Float, w : Float, h : Float, paint : Paint) 
         rotate(rot * dsc(2))
         for (j in 0..1) {
             val r : Float = size - size * 0.33f * j
-            drawArc(RectF(-r, -r, r, r), startDeg, sweep, false, paint)
+            drawArc(RectF(-r, -r, r, r), startDeg, sweep * dsc(j), false, paint)
         }
     }
 }
@@ -57,6 +57,7 @@ fun Canvas.drawCARUNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawConcArcRotUp(scale, w, h, paint)
 }
 
