@@ -27,3 +27,38 @@ val rot : Float = 90f
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+
+fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
+    save()
+    translate(x, y)
+    cb()
+    restore()
+}
+
+fun Canvas.drawOpenBoxRotDown(scale : Float, w : Float, h : Float, paint : Paint) {
+    val size : Float = Math.min(w, h) / sizeFactor
+    val dsc : (Int) -> Float = {
+        scale.divideScale(it, parts)
+    }
+    drawXY(w * 0.5f * dsc(2), h / 2 + (h / 2) * dsc(4)) {
+        rotate(rot * dsc(3))
+        for (j in 0..1) {
+            drawXY(0f, 0f) {
+                scale(1f, 1f - 2 * j)
+                drawXY(size / 2, size / 2) {
+                    rotate(rot * dsc(1))
+                    drawLine(-size / 2, 0f, -size / 2 + size * 0.5f * dsc(0), 0f, paint)
+                }
+            }
+        }
+    }
+}
+
+fun Canvas.drawOBRDNode(i : Int, scale : Float, paint : Paint) {
+    val w : Float = width.toFloat()
+    val h : Float = height.toFloat()
+    paint.color = Color.parseColor(colors[i])
+    paint.strokeCap = Paint.Cap.ROUND
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
+    drawOpenBoxRotDown(scale, w, h, paint)
+}
