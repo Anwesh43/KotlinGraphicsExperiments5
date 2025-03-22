@@ -214,4 +214,11 @@ class LineTouchRotAltView(ctx : Context) : View(ctx) {
             }
         }
     }
+    companion object {
+        fun create(activity: Activity) : LineTouchRotAltView {
+            val view : LineTouchRotAltView = LineTouchRotAltView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
