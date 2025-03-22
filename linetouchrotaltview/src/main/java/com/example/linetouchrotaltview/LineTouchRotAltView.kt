@@ -21,7 +21,7 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
-val rot : Float = 90f
+val rot : Float = 180f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -43,9 +43,9 @@ fun Canvas.drawLineTouchRotAlt(scale : Float, w : Float, h : Float, paint : Pain
     drawXY(w / 2, h / 2) {
         for (j in 0..1) {
             val fac : Float = 1f - 2 * j
-            drawXY(0f, h * 0.5f * fac * dsc(3)) {
+            drawXY(0f, -h * 0.5f * fac * dsc(3)) {
                 drawLine(0f, 0f, size * dsc(0) * fac, 0f, paint)
-                drawXY(size * (1f - 2 * j), -h * 0.5f * fac * (1f - dsc(1))) {
+                drawXY(size * (1f - 2 * j), -h * 0.5f * (1f - dsc(1))) {
                     rotate(rot * fac * j * dsc(2))
                     drawLine(0f, 0f, 0f, -size, paint)
                 }
