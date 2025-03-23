@@ -181,4 +181,27 @@ class ArcCompleteInMiddleView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcCompleteInMiddleView) {
+
+        private val animator : Animator = Animator(view)
+        private val acim : ArcCompleteInMiddle = ArcCompleteInMiddle(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            acim.draw(canvas, paint)
+            animator.animate {
+                acim.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            acim.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
