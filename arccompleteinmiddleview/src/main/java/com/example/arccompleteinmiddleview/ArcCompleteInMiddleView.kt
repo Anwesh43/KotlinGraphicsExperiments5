@@ -206,4 +206,12 @@ class ArcCompleteInMiddleView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : ArcCompleteInMiddleView {
+            val view : ArcCompleteInMiddleView = ArcCompleteInMiddleView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
