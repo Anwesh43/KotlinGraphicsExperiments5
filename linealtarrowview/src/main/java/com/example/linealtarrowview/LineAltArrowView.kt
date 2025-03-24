@@ -42,8 +42,8 @@ fun Canvas.drawLineAltArrow(scale : Float, w : Float, h : Float, paint : Paint) 
     drawXY(w / 2 + (w / 2) * dsc(3), h / 2) {
         for (j in 0..1) {
             drawXY(size, (h / 2) * (1f - 2 * j) * (1 - dsc(1))) {
-                rotate(rot * dsc(2))
-                drawLine(0f, 0f, 0f, -size * 0.25f, paint)
+                rotate(rot * dsc(2) * (1f - 2 * j))
+                drawLine(0f, 0f, 0f, size * 0.25f * (1f - 2 * j), paint)
             }
         }
         drawLine(0f, 0f, size * dsc(0), 0f, paint)
@@ -55,7 +55,7 @@ fun Canvas.drawLAANode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
-    paint.strokeWidth = Math.min(w, h) / sizeFactor
+    paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawLineAltArrow(scale, w, h, paint)
 }
 
