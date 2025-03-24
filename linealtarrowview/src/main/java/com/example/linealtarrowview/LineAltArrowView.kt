@@ -210,4 +210,13 @@ class LineAltArrowView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineAltArrowView {
+            val view : LineAltArrowView = LineAltArrowView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
