@@ -185,4 +185,27 @@ class LineAltArrowView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineAltArrowView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val laa : LineAltArrow = LineAltArrow(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            laa.draw(canvas, paint)
+            animator.animate {
+                laa.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            laa.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
