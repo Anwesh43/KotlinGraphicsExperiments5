@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arcaltlinerotview" />
             <option value="$PROJECT_DIR$/arcaltsiderotview" />
+            <option value="$PROJECT_DIR$/arccompleteinmiddleview" />
             <option value="$PROJECT_DIR$/arccompleterotupview" />
             <option value="$PROJECT_DIR$/arcconcverticalrotview" />
             <option value="$PROJECT_DIR$/arcextendlinedropview" />
@@ -53,6 +54,7 @@
             <option value="$PROJECT_DIR$/encloselinearcfromleftview" />
             <option value="$PROJECT_DIR$/fourquartercircleview" />
             <option value="$PROJECT_DIR$/halfarcleftdownview" />
+            <option value="$PROJECT_DIR$/linealtarrowview" />
             <option value="$PROJECT_DIR$/linealtrotrightview" />
             <option value="$PROJECT_DIR$/linearcbentjoinview" />
             <option value="$PROJECT_DIR$/linearccloseview" />
