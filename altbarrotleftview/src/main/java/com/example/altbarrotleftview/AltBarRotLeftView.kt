@@ -45,7 +45,7 @@ fun Canvas.drawAltBarRotLeft(scale : Float, w : Float, h : Float, paint : Paint)
             drawXY(0f, 0f) {
                 scale(1f, 1f - 2 * j)
                 drawXY((w / 2) * (1 - dsc(2 * j)), 0f) {
-                    rotate(rot * dsc(2 * j + 1))
+                    rotate(rot * dsc(2 * j + 1) * (1f - 2 * j))
                     drawRect(RectF(0f, -size, size, 0f), paint)
                 }
             }
