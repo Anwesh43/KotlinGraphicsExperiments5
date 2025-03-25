@@ -211,4 +211,13 @@ class AltBarRotLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : AltBarRotLeftView {
+            val view : AltBarRotLeftView = AltBarRotLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
