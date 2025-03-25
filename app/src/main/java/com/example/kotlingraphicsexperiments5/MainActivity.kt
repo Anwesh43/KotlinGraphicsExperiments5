@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.altbarrotleftview.AltBarRotLeftView
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.linealtarrowview.LineAltArrowView
 
 
 class MainActivity : ComponentActivity() {
