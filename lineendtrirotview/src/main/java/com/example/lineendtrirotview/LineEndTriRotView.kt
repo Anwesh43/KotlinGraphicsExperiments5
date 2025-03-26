@@ -21,6 +21,7 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 5.9f
 val rot : Float = 90f
 val backColor : Int = Color.parseColor("#BDBDBD")
+val delay : Long = 20
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -40,8 +41,8 @@ fun Canvas.drawLineEndTriRot(scale : Float, w : Float, h : Float, paint : Paint)
     }
     drawXY(w / 2 + (w / 2) * dsc(4), h / 2) {
         rotate(rot * dsc(3))
-        drawLine(0f, 0f, 0f, -size * dsc(0))
-        drawXY(-size, 0f) {
+        drawLine(0f, 0f, 0f, -size * dsc(0), paint)
+        drawXY(0f, -size) {
             drawLine(0f, 0f, size * 0.5f * dsc(1), size * dsc(1), paint)
         }
         drawXY(size / 2, 0f) {
