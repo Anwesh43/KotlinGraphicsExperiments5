@@ -210,4 +210,12 @@ class LineEndTriRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : LineEndTriRotView {
+            val view : LineEndTriRotView = LineEndTriRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
