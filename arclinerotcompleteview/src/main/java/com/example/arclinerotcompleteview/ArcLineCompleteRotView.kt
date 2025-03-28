@@ -215,4 +215,12 @@ class ArcLineCompleteRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcLineCompleteRotView {
+            val view : ArcLineCompleteRotView = ArcLineCompleteRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
