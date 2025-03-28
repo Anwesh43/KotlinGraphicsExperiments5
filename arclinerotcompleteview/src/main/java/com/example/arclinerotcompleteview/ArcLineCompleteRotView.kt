@@ -21,7 +21,7 @@ val scGap : Float = 0.05f / parts
 val sizeFactor : Float = 5.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
-val rot : Float = 90f
+val rot : Float = 180f
 val strokeFactor : Float = 90f
 
 fun Int.inverse() : Float = 1f / this
@@ -44,7 +44,7 @@ fun Canvas.drawArcLineCompleteRot(scale : Float, w : Float, h : Float, paint : P
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 scale(1f - 2 * j, 1f)
-                rotate(rot * dsc(4) * j)
+                rotate(rot * dsc(4) * (1 - j))
                 drawLine(0f, 0f, size * 0.5f * dsc(2 * (1 - j) + j), 0f, paint)
                 drawXY(size / 2, 0f) {
                     drawArc(RectF(0f, -size / 4, size / 2, size / 4), 180f, 180f * dsc(2 * (1 - j) + (1 - j)), false, paint)
@@ -60,6 +60,7 @@ fun Canvas.drawALCRNode(i : Int, scale : Float, paint : Paint) {
     val h : Float = height.toFloat()
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
+    paint.style = Paint.Style.STROKE
     paint.strokeWidth = Math.min(w, h) / strokeFactor
     drawArcLineCompleteRot(scale, w, h, paint)
 }
