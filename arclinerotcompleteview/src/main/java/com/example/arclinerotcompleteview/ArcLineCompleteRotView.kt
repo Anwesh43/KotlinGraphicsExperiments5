@@ -45,9 +45,9 @@ fun Canvas.drawArcLineCompleteRot(scale : Float, w : Float, h : Float, paint : P
             drawXY(0f, 0f) {
                 scale(1f - 2 * j, 1f)
                 rotate(rot * dsc(4) * (1 - j))
-                drawLine(0f, 0f, size * 0.5f * dsc(2 * (1 - j) + j), 0f, paint)
+                drawLine((size / 2) * j * (1 - dsc(1 + 1 - j)) , 0f, ((1 - j) * (size / 2) * dsc(2 * (1 - j))) + size * 0.5f * j, 0f, paint)
                 drawXY(size / 2, 0f) {
-                    drawArc(RectF(0f, -size / 4, size / 2, size / 4), 180f, 180f * dsc(2 * (1 - j) + (1 - j)), false, paint)
+                    drawArc(RectF(0f, -size / 4, size / 2, size / 4), 180f * ((1 - j) + (2f - dsc(1 - j)) * j), 180f * dsc(2 * (1 - j) + (1 - j)), false, paint)
                 }
             }
         }
