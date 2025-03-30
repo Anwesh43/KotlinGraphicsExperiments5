@@ -16,9 +16,9 @@ val colors : Array<String> = arrayOf(
     "#C51162",
     "#00C853"
 )
-val parts : Int = 4
+val parts : Int = 5
 val scGap : Float = 0.04f / parts
-val strokeFactor : Float = 4.9f
+val strokeFactor : Float = 90f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val rot : Float = 90f
@@ -53,6 +53,7 @@ fun Canvas.drawULRUNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawUmbrellaLeftRotUp(scale, w, h, paint)
 }
 
