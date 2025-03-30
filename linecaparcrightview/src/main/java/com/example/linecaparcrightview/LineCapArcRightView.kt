@@ -185,4 +185,27 @@ class LineCapArcRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineCapArcRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val lcar : LineCapArcRight = LineCapArcRight(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lcar.draw(canvas, paint)
+            animator.animate {
+                lcar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lcar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
