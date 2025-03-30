@@ -207,4 +207,12 @@ class UmbrellaLeftRotUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+    companion object {
+
+        fun create(activity: Activity) : UmbrellaLeftRotUpView {
+            val view : UmbrellaLeftRotUpView = UmbrellaLeftRotUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
