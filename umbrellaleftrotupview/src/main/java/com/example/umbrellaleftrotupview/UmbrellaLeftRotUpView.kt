@@ -182,4 +182,27 @@ class UmbrellaLeftRotUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : UmbrellaLeftRotUpView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ulru : UmbrellaLeftRotUp = UmbrellaLeftRotUp(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ulru.draw(canvas, paint)
+            animator.animate {
+                ulru.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ulru.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
