@@ -45,7 +45,7 @@ fun Canvas.drawLineCapArcRight(scale : Float, w : Float, h : Float, paint : Pain
         rotate(rot * dsc(3))
         drawXY(-w / 2 + (w / 2) * dsc(2), 0f) {
             drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -90f, 90f * dsc(0), false, paint)
-            drawLine(size, 0f, size * (1 - dsc(1)), 0f, paint)
+            drawLine(size / 2, 0f, size * 0.5f * (1 - dsc(1)), 0f, paint)
         }
     }
 }
@@ -56,6 +56,7 @@ fun Canvas.drawLCARNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawLineCapArcRight(scale, w, h, paint)
 }
 
