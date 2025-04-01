@@ -17,7 +17,7 @@ val colors : Array<String> = arrayOf(
 )
 val parts : Int = 5
 val scGap : Float = 0.04f / parts
-val rot : Float = 90f
+val rot : Float = 45f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
@@ -41,7 +41,7 @@ fun Canvas.drawBentlineOneEighty(scale : Float, w : Float, h : Float, paint : Pa
     }
     drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
         drawXY((w / 2) * (1 - dsc(0)), 0f) {
-            rotate(rot * (dsc(1) + dsc(3)))
+            rotate(rot * (dsc(1) + 3 * dsc(3)))
             drawLine(0f, 0f, size, 0f, paint)
         }
         drawXY(-w * 0.5f * (1 - dsc(2)), 0f) {
