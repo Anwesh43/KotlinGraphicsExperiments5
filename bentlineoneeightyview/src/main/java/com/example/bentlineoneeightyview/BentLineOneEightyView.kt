@@ -163,7 +163,7 @@ class BentLineOneEightyView(ctx : Context) : View(ctx) {
         }
     }
 
-    data class BentLineOneEight(var i : Int) {
+    data class BentLineOneEighty(var i : Int) {
 
         private var curr : BLOENode = BLOENode(0)
         private var dir : Int = 1
@@ -183,6 +183,29 @@ class BentLineOneEightyView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : BentLineOneEightyView) {
+
+        private val animator : Animator = Animator(view)
+        private val bloe : BentLineOneEighty = BentLineOneEighty(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            bloe.draw(canvas, paint)
+            animator.animate {
+                bloe.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bloe.startUpdating {
+                animator.start()
+            }
         }
     }
 }
