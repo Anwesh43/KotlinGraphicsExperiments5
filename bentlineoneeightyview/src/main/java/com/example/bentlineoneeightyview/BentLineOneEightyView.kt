@@ -210,4 +210,13 @@ class BentLineOneEightyView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : BentLineOneEightyView {
+            val view : BentLineOneEightyView = BentLineOneEightyView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
