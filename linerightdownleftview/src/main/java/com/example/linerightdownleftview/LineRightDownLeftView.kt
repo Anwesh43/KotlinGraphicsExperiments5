@@ -208,4 +208,13 @@ class LineRightDownLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(acivity : Activity) : LineRightDownLeftView {
+            val view : LineRightDownLeftView = LineRightDownLeftView(acivity)
+            acivity.setContentView(view)
+            return view
+        }
+    }
 }
