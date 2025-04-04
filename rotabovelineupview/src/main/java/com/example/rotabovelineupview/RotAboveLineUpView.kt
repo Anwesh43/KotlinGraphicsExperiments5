@@ -190,4 +190,27 @@ class RotAboveLineUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotAboveLineUpView) {
+
+        private var ralu : RotAboveLineUp = RotAboveLineUp(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ralu.draw(canvas, paint)
+            animator.animate {
+                ralu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ralu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
