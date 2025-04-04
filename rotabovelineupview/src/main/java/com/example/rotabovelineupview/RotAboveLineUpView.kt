@@ -21,7 +21,7 @@ val strokeFactor : Float = 90f
 val sizeFactor : Float = 4.9f
 val delay : Long = 20
 val rot : Float = 90f
-val deg : Float = 180f
+val deg : Float = 90f
 val backColor : Int = Color.parseColor("#BDBDBD")
 
 fun Int.inverse() : Float = 1f / this
@@ -47,7 +47,7 @@ fun Canvas.drawRotAboveLineUp(scale : Float, w : Float, h : Float, paint : Paint
                 for (j in 0..1) {
                     drawXY(0f, 0f) {
                         rotate(rot * (1f - 2 * j) * dsc(1))
-                        drawLine(0f, 0f, size * 0.5f, 0f, paint)
+                        drawLine(0f, 0f, 0f, size * 0.5f, paint)
                     }
                 }
             }
