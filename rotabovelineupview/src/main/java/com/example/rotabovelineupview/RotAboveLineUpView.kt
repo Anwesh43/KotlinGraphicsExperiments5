@@ -215,4 +215,13 @@ class RotAboveLineUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : RotAboveLineUpView {
+            val view : RotAboveLineUpView = RotAboveLineUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
