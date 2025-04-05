@@ -211,4 +211,13 @@ class LineDropBentLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDropBentLeftView {
+            val view : LineDropBentLeftView = LineDropBentLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
