@@ -57,6 +57,7 @@ fun Canvas.drawLDBLNode(i : Int, scale : Float, paint : Paint) {
     paint.style = Paint.Style.STROKE
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.color = Color.parseColor(colors[i])
     drawLineDropBentLeft(scale, w, h, paint)
 }
 
