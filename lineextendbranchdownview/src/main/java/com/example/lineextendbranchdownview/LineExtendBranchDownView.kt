@@ -215,4 +215,13 @@ class LineExtendBranchDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineExtendBranchDownView {
+            val view : LineExtendBranchDownView = LineExtendBranchDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
