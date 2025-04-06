@@ -190,4 +190,27 @@ class LineExtendBranchDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineExtendBranchDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lebd : LineExtendBranchDown = LineExtendBranchDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lebd.draw(canvas, paint)
+            animator.animate {
+                lebd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lebd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
