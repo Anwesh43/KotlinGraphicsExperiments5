@@ -210,4 +210,13 @@ class ArcCloseLineRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : ArcCloseLineRightView {
+            val view : ArcCloseLineRightView= ArcCloseLineRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
