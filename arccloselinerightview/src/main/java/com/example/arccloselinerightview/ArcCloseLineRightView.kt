@@ -185,4 +185,27 @@ class ArcCloseLineRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : ArcCloseLineRightView) {
+
+        private val aclr : ArcCloseLineRight = ArcCloseLineRight(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aclr.draw(canvas, paint)
+            animator.animate {
+                aclr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aclr.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
