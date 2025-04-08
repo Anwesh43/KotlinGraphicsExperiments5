@@ -54,7 +54,7 @@ fun Canvas.drawBRRDNode(i : Int, scale : Float, paint : Paint) {
     drawBarRotRightDown(scale, w, h, paint)
 }
 
-class BrRotRightDownView(ctx : Context) : View(ctx) {
+class BarRotRightDownView(ctx : Context) : View(ctx) {
 
     override fun onDraw(canvas : Canvas) {
 
@@ -178,6 +178,29 @@ class BrRotRightDownView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : BarRotRightDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val brrd : BarRotRightDown = BarRotRightDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            brrd.draw(canvas, paint)
+            animator.animate {
+                brrd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            brrd.startUpdating {
+                animator.start()
+            }
         }
     }
 }
