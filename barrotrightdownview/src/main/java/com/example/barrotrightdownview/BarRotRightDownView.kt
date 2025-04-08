@@ -27,3 +27,29 @@ val delay : Long = 20
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
+
+fun Canvas.drawXY(x : Float, y : Float, cb : () -> Unit) {
+    save()
+    translate(x, y)
+    cb()
+    restore()
+}
+
+fun Canvas.drawBarRotRightDown(scale : Float, w : Float, h : Float, paint : Paint) {
+    val wBar : Float = Math.min(w, h) / wFactor
+    val hBar : Float = Math.min(w, h) / hFactor
+    val dsc : (Int) -> Float = {
+        scale.divideScale(it, parts)
+    }
+    drawXY(w * 0.5f * dsc(2), h * 0.5f * (1 + dsc(3))) {
+        rotate(rot * dsc(1))
+        drawRect(RectF(0f, -hBar, wBar * dsc(0), 0f), paint)
+    }
+}
+
+fun Canvas.drawBRRDNode(i : Int, scale : Float, paint : Paint) {
+    val w : Float = width.toFloat()
+    val h : Float = height.toFloat()
+    paint.color = Color.parseColor(colors[i])
+    drawBarRotRightDown(scale, w, h, paint)
+}
