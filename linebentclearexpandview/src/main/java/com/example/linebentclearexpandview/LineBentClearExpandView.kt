@@ -208,4 +208,13 @@ class LineBentClearExpandView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBentClearExpandView {
+            val view : LineBentClearExpandView = LineBentClearExpandView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
