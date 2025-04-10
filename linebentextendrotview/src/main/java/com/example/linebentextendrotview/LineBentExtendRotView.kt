@@ -208,4 +208,13 @@ class LineBentExtendRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineBentExtendRotView {
+            val view : LineBentExtendRotView = LineBentExtendRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
