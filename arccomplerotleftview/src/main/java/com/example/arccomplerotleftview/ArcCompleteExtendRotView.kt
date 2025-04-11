@@ -207,4 +207,12 @@ class ArcCompleteExtendRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcCompleteExtendRotView {
+            val view : ArcCompleteExtendRotView = ArcCompleteExtendRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
