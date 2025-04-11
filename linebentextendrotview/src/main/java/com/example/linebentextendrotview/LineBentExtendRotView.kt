@@ -41,7 +41,7 @@ fun Canvas.drawLineBentExtendRot(scale : Float, w : Float, h : Float, paint : Pa
     }
     drawXY(w / 2, h / 2 + (h / 2) * dsc(4)) {
         rotate(rot * dsc(3))
-        drawLine(0f, -size * 0.5f * dsc(0), 0f, -size * 0.5f * dsc(1), paint)
+        drawLine(0f, 0f, size * 0.5f * dsc(0), -size * 0.5f * dsc(1), paint)
         drawXY(size / 2, -size / 2) {
             drawLine(0f, 0f, size * 0.5f * dsc(2), size * 0.5f * dsc(2), paint)
         }
