@@ -83,7 +83,7 @@ class ArcCompleteExtendRotView(ctx : Context) : View(ctx) {
             }
         }
 
-        fun startUdpating(cb : () -> Unit) {
+        fun startUpdating(cb : () -> Unit) {
             if (dir === 0f) {
                 dir = 1f - 2 * prevScale
                 cb()
@@ -116,6 +116,47 @@ class ArcCompleteExtendRotView(ctx : Context) : View(ctx) {
             if (animated) {
                 animated = false
             }
+        }
+    }
+
+    data class ACERNode(var i : Int, val state : State = State()) {
+
+        private var next : ACERNode? = null
+        private var prev : ACERNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            if (i < colors.size - 1) {
+                next = ACERNode(i + 1)
+                next?.prev = this
+            }
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawACERNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : ACERNode {
+            var curr : ACERNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
         }
     }
 }
