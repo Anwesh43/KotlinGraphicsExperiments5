@@ -213,4 +213,13 @@ class FullToHalfArcDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : FullToHalfArcDownView {
+            val view : FullToHalfArcDownView = FullToHalfArcDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
