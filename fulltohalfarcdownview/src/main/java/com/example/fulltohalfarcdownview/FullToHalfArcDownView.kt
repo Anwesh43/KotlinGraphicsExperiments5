@@ -47,9 +47,9 @@ fun Canvas.drawFullToHalfArcDown(scale : Float, w : Float, h : Float, paint : Pa
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
+    drawXY(w * 0.5f * (dsc(1)), h * 0.5f * (1 - dsc(4))) {
         rotate(rot * dsc(2))
-        drawArc(RectF(0f, -size / 2, size, size / 2), 180f * dsc(3), 180f * (2 * dsc(0) - dsc(3)), false, paint)
+        drawArc(RectF(0f, -size / 2, size, size / 2), 180f * (1 + dsc(3)), 180f * (2 * dsc(0) - dsc(3)), false, paint)
     }
 }
 
@@ -59,6 +59,7 @@ fun Canvas.drawFTHADNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawFullToHalfArcDown(scale, w, h, paint)
 }
 
