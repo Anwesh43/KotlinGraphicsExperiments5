@@ -188,4 +188,27 @@ class FullToHalfArcDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : FullToHalfArcDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ftha : FullToHalfArcDown = FullToHalfArcDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ftha.draw(canvas, paint)
+            animator.animate {
+                ftha.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ftha.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
