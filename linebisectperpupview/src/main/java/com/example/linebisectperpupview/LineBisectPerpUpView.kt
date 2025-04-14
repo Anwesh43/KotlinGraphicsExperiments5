@@ -184,4 +184,27 @@ class LineBisectPerpUpView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineBisectPerpUpView) {
+
+        private val lbpu : LineBisectPerpUp = LineBisectPerpUp(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lbpu.draw(canvas, paint)
+            animator.animate {
+                lbpu.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lbpu.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
