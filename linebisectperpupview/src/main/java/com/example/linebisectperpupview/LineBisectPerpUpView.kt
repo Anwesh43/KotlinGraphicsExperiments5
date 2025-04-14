@@ -209,4 +209,12 @@ class LineBisectPerpUpView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : LineBisectPerpUpView {
+            val view : LineBisectPerpUpView = LineBisectPerpUpView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
