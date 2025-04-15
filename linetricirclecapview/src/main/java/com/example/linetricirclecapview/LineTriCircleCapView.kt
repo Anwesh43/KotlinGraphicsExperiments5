@@ -191,4 +191,27 @@ class LineTriCircleCapView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineTriCircleCapView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val ltcc : LineTriCircleCap = LineTriCircleCap(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ltcc.draw(canvas, paint)
+            animator.animate {
+                ltcc.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ltcc.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
