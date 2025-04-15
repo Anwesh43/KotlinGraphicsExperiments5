@@ -216,4 +216,12 @@ class LineTriCircleCapView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : LineTriCircleCapView {
+            val view : LineTriCircleCapView = LineTriCircleCapView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
