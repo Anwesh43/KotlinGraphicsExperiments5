@@ -136,7 +136,7 @@ class LineTriCircleCapView(ctx : Context) : View(ctx) {
         private var prev : LTCCNode? = null
 
         init {
-
+            addNeighbor()
         }
 
         fun addNeighbor() {
