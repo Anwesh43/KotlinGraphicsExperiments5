@@ -121,4 +121,42 @@ class PerpLineAngleRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class PLARNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : PLARNode? = null
+        private var prev : PLARNode? = null
+
+        init {
+            addNeighbor()
+        }
+
+        fun addNeighbor() {
+            next = PLARNode(i + 1)
+            next?.prev = this
+        }
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawPLARNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : PLARNode {
+            var curr : PLARNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
