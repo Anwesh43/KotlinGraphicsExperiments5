@@ -207,4 +207,12 @@ class PerpLineAngleRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+    companion object {
+
+        fun create(activity: Activity) : PerpLineAngleRightView {
+            val view : PerpLineAngleRightView = PerpLineAngleRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
