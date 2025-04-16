@@ -182,4 +182,27 @@ class PerpLineAngleRightView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : PerpLineAngleRightView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val plar : PerpLineAngleRight = PerpLineAngleRight(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            plar.draw(canvas, paint)
+            animator.animate {
+                plar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            plar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
