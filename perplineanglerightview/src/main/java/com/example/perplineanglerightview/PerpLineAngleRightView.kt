@@ -134,8 +134,10 @@ class PerpLineAngleRightView(ctx : Context) : View(ctx) {
         }
 
         fun addNeighbor() {
-            next = PLARNode(i + 1)
-            next?.prev = this
+            if (i < colors.size - 1) {
+                next = PLARNode(i + 1)
+                next?.prev = this
+            }
         }
         fun draw(canvas : Canvas, paint : Paint) {
             canvas.drawPLARNode(i, state.scale, paint)
