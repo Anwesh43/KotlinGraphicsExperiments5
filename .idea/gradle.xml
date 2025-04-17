@@ -136,6 +136,7 @@
             <option value="$PROJECT_DIR$/linesweepjoinrightview" />
             <option value="$PROJECT_DIR$/linetouchrotaltview" />
             <option value="$PROJECT_DIR$/linetriarccloseview" />
+            <option value="$PROJECT_DIR$/linetricirclecapview" />
             <option value="$PROJECT_DIR$/lineuparcrotview" />
             <option value="$PROJECT_DIR$/lineupbentrotdownview" />
             <option value="$PROJECT_DIR$/lineupsqdownbentview" />
@@ -145,6 +146,7 @@
             <option value="$PROJECT_DIR$/openlinestrokerotview" />
             <option value="$PROJECT_DIR$/opensqrotrightview" />
             <option value="$PROJECT_DIR$/parallellinejoinrotview" />
+            <option value="$PROJECT_DIR$/perplineanglerightview" />
             <option value="$PROJECT_DIR$/rightarcanglejoinview" />
             <option value="$PROJECT_DIR$/rightlinearcintorightview" />
             <option value="$PROJECT_DIR$/rightlinejoinshiftview" />
