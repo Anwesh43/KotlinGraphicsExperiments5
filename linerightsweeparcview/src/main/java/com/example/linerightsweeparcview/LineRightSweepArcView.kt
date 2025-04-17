@@ -213,4 +213,13 @@ class LineRightSweepArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : LineRightSweepArcView {
+            val view : LineRightSweepArcView = LineRightSweepArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
