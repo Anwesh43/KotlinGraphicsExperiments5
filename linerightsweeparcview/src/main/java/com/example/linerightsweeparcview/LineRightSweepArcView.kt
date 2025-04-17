@@ -188,4 +188,27 @@ class LineRightSweepArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRightSweepArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrsa : LineRightSweepArc = LineRightSweepArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lrsa.draw(canvas, paint)
+            animator.animate {
+                lrsa.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrsa.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
