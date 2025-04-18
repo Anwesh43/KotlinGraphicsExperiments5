@@ -183,4 +183,27 @@ class LineDropPerpDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineDropPerpDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val ldpd : LineDropPerpDown = LineDropPerpDown(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            ldpd.draw(canvas, paint)
+            animator.animate {
+                ldpd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            ldpd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
