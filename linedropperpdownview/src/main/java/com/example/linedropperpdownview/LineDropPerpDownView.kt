@@ -208,4 +208,13 @@ class LineDropPerpDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineDropPerpDownView {
+            val view : LineDropPerpDownView = LineDropPerpDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
