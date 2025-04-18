@@ -39,7 +39,7 @@ fun Canvas.drawLineDropPerpDown(scale : Float, w : Float, h : Float, paint : Pai
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY(w / 2 + (w / 2) * dsc(3), h / 2) {
+    drawXY(w / 2 + (w / 2) * dsc(3), h / 2 + (h / 2) * dsc(3)) {
         rotate(rot * dsc(2))
         drawXY(0f, -h * 0.5f * (1 - dsc(0))) {
             drawLine(0f, 0f, 0f, -size * (1 - dsc(1)), paint)
