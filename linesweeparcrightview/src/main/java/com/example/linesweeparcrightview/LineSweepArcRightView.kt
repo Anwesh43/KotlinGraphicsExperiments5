@@ -40,7 +40,7 @@ fun Canvas.drawLineSweepArcRight(scale : Float, w : Float, h : Float, paint : Pa
     val dsc : (Int) -> Float = {
         scale.divideScale(it, parts)
     }
-    drawXY((w / 2) * dsc(3), h / 2) {
+    drawXY(w * 0.5f * (1 +dsc(3)), h / 2) {
         drawXY(-w * 0.5f * (1 - dsc(0)), 0f) {
             rotate(rot * 0.5f * dsc(1) + rot * dsc(2))
             drawLine(0f, 0f, -size, 0f, paint)
