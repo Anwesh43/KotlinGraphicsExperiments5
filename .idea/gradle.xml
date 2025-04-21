@@ -97,6 +97,7 @@
             <option value="$PROJECT_DIR$/linedropbentleftview" />
             <option value="$PROJECT_DIR$/linedropbreakrightview" />
             <option value="$PROJECT_DIR$/linedropintorotview" />
+            <option value="$PROJECT_DIR$/linedropperpdownview" />
             <option value="$PROJECT_DIR$/linedropsqbentview" />
             <option value="$PROJECT_DIR$/lineendtrirotview" />
             <option value="$PROJECT_DIR$/lineextendarcrotview" />
@@ -119,6 +120,7 @@
             <option value="$PROJECT_DIR$/linerighteithersideview" />
             <option value="$PROJECT_DIR$/linerightjoinrotview" />
             <option value="$PROJECT_DIR$/linerightrotdownview" />
+            <option value="$PROJECT_DIR$/linerightsweeparcview" />
             <option value="$PROJECT_DIR$/linerighttshapeview" />
             <option value="$PROJECT_DIR$/linerotarcrightview" />
             <option value="$PROJECT_DIR$/linerothalfdownview" />
@@ -133,6 +135,7 @@
             <option value="$PROJECT_DIR$/linesixtyjoinarcview" />
             <option value="$PROJECT_DIR$/lineslantrightview" />
             <option value="$PROJECT_DIR$/linestepextenddownview" />
+            <option value="$PROJECT_DIR$/linesweeparcrightview" />
             <option value="$PROJECT_DIR$/linesweepjoinrightview" />
             <option value="$PROJECT_DIR$/linetouchrotaltview" />
             <option value="$PROJECT_DIR$/linetriarccloseview" />
