@@ -189,4 +189,27 @@ class AltPerpJoinArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : AltPerpJoinArcView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val apja : AltPerpJoinArc = AltPerpJoinArc(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            apja.draw(canvas, paint)
+            animator.animate {
+                apja.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            apja.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
