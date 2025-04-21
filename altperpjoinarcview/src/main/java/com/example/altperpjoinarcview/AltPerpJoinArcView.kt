@@ -214,4 +214,13 @@ class AltPerpJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : AltPerpJoinArcView {
+            val view : AltPerpJoinArcView = AltPerpJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
