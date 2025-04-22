@@ -181,5 +181,28 @@ class RotArcLeftDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : RotArcLeftDownView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val rald : RotArcLeftDown = RotArcLeftDown(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            rald.draw(canvas, paint)
+            animator.animate {
+                rald.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            rald.startUdpating {
+                animator.start()
+            }
+        }
+    }
 }
 
