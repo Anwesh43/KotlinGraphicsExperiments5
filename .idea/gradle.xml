@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/altbarrotleftview" />
+            <option value="$PROJECT_DIR$/altperpjoinarcview" />
             <option value="$PROJECT_DIR$/altupdownlineview" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arcaltlinerotview" />
@@ -154,6 +155,7 @@
             <option value="$PROJECT_DIR$/rightlinearcintorightview" />
             <option value="$PROJECT_DIR$/rightlinejoinshiftview" />
             <option value="$PROJECT_DIR$/rotabovelineupview" />
+            <option value="$PROJECT_DIR$/rotarcleftdownview" />
             <option value="$PROJECT_DIR$/rotleftsqexpandview" />
             <option value="$PROJECT_DIR$/rotsqleftexpandview" />
             <option value="$PROJECT_DIR$/rottrijoinrightview" />
