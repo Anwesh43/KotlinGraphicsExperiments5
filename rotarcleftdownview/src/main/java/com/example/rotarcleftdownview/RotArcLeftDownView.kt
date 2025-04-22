@@ -206,5 +206,13 @@ class RotArcLeftDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : RotArcLeftDownView {
+            val view : RotArcLeftDownView = RotArcLeftDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
 
