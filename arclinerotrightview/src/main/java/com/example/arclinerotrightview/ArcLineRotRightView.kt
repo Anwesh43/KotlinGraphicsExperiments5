@@ -210,4 +210,12 @@ class ArcLineRotRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : ArcLineRotRightView {
+            val view : ArcLineRotRightView = ArcLineRotRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
