@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.arclinerotrightview.ArcLineRotRightView
 import com.example.kotlingraphicsexperiments5.ui.theme.KotlinGraphicsExperiments5Theme
-import com.example.rotarcleftdownview.RotArcLeftDownView
 
 
 class MainActivity : ComponentActivity() {

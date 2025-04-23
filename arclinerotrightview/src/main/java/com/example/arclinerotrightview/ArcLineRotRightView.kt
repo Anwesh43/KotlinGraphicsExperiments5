@@ -135,7 +135,7 @@ class ArcLineRotRightView(ctx : Context) : View(ctx) {
 
         fun addNeighbor() {
             if (i < colors.size - 1) {
-                next = ALRRNode(i)
+                next = ALRRNode(i + 1)
                 next?.prev = this
             }
         }
