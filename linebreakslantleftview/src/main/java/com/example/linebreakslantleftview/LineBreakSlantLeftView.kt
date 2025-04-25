@@ -210,4 +210,13 @@ class LineBreakSlantLeftView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : LineBreakSlantLeftView {
+            val view : LineBreakSlantLeftView = LineBreakSlantLeftView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
