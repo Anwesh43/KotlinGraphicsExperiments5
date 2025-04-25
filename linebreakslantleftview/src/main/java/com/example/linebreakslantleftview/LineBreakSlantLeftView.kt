@@ -44,7 +44,7 @@ fun Canvas.drawLineBreakSlantLeft(scale : Float, w : Float, h : Float, paint : P
         for (j in 0..1) {
             drawXY(size, 0f) {
                 rotate(rot * dsc(3) * (1 + j) * (1f - 2 * j))
-                drawLine(0f, 0f, 0f, -size * dsc(1), paint)
+                drawLine(0f, 0f, 0f, -size * dsc(1) * (1f - 2 * j), paint)
             }
         }
     }
