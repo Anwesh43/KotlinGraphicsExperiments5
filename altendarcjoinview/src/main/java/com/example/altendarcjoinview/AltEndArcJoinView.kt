@@ -187,4 +187,27 @@ class AltEndArcJoinView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : AltEndArcJoinView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val aeaj : AltEndArcJoin = AltEndArcJoin(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            aeaj.draw(canvas, paint)
+            animator.animate {
+                aeaj.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            aeaj.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
