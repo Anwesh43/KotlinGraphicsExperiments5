@@ -212,4 +212,12 @@ class AltEndArcJoinView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : AltEndArcJoinView {
+            val view : AltEndArcJoinView = AltEndArcJoinView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
