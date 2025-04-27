@@ -209,4 +209,13 @@ class PerpLineJoinArcView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : PerpLineJoinArcView {
+            val view : PerpLineJoinArcView = PerpLineJoinArcView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
