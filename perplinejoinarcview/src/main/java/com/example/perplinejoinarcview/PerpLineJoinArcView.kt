@@ -184,4 +184,27 @@ class PerpLineJoinArcView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : PerpLineJoinArcView) {
+
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val plja : PerpLineJoinArc = PerpLineJoinArc(0)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            plja.draw(canvas, paint)
+            animator.animate {
+                plja.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            plja.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
