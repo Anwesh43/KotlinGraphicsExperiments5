@@ -60,3 +60,19 @@ fun Canvas.drawLSRANode(i : Int, scale : Float, paint : Paint) {
     paint.style = Paint.Style.STROKE
     drawLineSweepRotArc(scale, w, h, paint)
 }
+
+class LineSweepRotArcView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
