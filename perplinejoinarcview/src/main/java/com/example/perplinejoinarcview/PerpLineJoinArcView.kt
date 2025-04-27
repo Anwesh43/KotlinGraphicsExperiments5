@@ -45,7 +45,7 @@ fun Canvas.drawPerpLineJoinArc(scale : Float, w : Float, h : Float, paint : Pain
         drawXY(size, -h * 0.5f * (1 - dsc(1))) {
             drawLine(0f, 0f, 0f, -size, paint)
         }
-        drawArc(RectF(-size, -size, size, size), 180f, rot * dsc(2), false, paint)
+        drawArc(RectF(0f, -size, 2 * size, size), 180f, rot * dsc(2), false, paint)
     }
 }
 
@@ -55,6 +55,7 @@ fun Canvas.drawPLJANode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawPerpLineJoinArc(scale, w, h, paint)
 }
 
