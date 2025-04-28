@@ -188,4 +188,27 @@ class PerpLineArcRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : PerpLineArcRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val plar : PerpLineArcRot = PerpLineArcRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            plar.draw(canvas, paint)
+            animator.animate {
+                plar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            plar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
