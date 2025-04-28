@@ -44,7 +44,7 @@ fun Canvas.drawPerpLineArcRot(scale : Float, w : Float, h : Float, paint : Paint
     drawXY(w / 2 - (w / 2) * dsc(4), h / 2) {
         drawXY(0f, 0f) {
             rotate(rot * dsc(1))
-            drawArc(RectF(0f, -size / 2, size, 0f), 180f, rot * dsc(0), false, paint)
+            drawArc(RectF(0f, -size / 2, size, size / 2), 180f, rot * dsc(0), false, paint)
         }
         drawXY(-size, -h * 0.5f * (1 - dsc(2))) {
             rotate(deg * dsc(3))
