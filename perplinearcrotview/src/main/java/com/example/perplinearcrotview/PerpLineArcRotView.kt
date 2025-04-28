@@ -213,4 +213,13 @@ class PerpLineArcRotView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity: Activity) : PerpLineArcRotView {
+            val view : PerpLineArcRotView = PerpLineArcRotView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
