@@ -167,7 +167,7 @@ class BisectLineDivideRotView(ctx : Context) : View(ctx) {
         private var curr : BLDRNode = BLDRNode(0)
         private var dir : Int = 1
 
-        fun render(canvas : Canvas, paint : Paint) {
+        fun draw(canvas : Canvas, paint : Paint) {
             curr.draw(canvas, paint)
         }
 
@@ -182,6 +182,29 @@ class BisectLineDivideRotView(ctx : Context) : View(ctx) {
 
         fun startUpdating(cb : () -> Unit) {
             curr.startUpdating(cb)
+        }
+    }
+
+    data class Renderer(var view : BisectLineDivideRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val bldr : BisectLineDivideRot = BisectLineDivideRot(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            bldr.draw(canvas, paint)
+            animator.animate {
+                bldr.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            bldr.startUpdating {
+                animator.start()
+            }
         }
     }
 }
