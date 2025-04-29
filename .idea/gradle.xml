@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/altbarrotleftview" />
+            <option value="$PROJECT_DIR$/altendarcjoinview" />
             <option value="$PROJECT_DIR$/altperpjoinarcview" />
             <option value="$PROJECT_DIR$/altupdownlineview" />
             <option value="$PROJECT_DIR$/app" />
@@ -87,6 +88,7 @@
             <option value="$PROJECT_DIR$/linebisectperpupview" />
             <option value="$PROJECT_DIR$/linebisectsteprightview" />
             <option value="$PROJECT_DIR$/linebreakarcrotview" />
+            <option value="$PROJECT_DIR$/linebreakslantleftview" />
             <option value="$PROJECT_DIR$/linebreakupdownview" />
             <option value="$PROJECT_DIR$/linecaparcrightview" />
             <option value="$PROJECT_DIR$/linecapjoinarcview" />
@@ -139,6 +141,7 @@
             <option value="$PROJECT_DIR$/linestepextenddownview" />
             <option value="$PROJECT_DIR$/linesweeparcrightview" />
             <option value="$PROJECT_DIR$/linesweepjoinrightview" />
+            <option value="$PROJECT_DIR$/linesweeprotarcview" />
             <option value="$PROJECT_DIR$/linetouchrotaltview" />
             <option value="$PROJECT_DIR$/linetriarccloseview" />
             <option value="$PROJECT_DIR$/linetricirclecapview" />
@@ -152,6 +155,8 @@
             <option value="$PROJECT_DIR$/opensqrotrightview" />
             <option value="$PROJECT_DIR$/parallellinejoinrotview" />
             <option value="$PROJECT_DIR$/perplineanglerightview" />
+            <option value="$PROJECT_DIR$/perplinearcrotview" />
+            <option value="$PROJECT_DIR$/perplinejoinarcview" />
             <option value="$PROJECT_DIR$/rightarcanglejoinview" />
             <option value="$PROJECT_DIR$/rightlinearcintorightview" />
             <option value="$PROJECT_DIR$/rightlinejoinshiftview" />
