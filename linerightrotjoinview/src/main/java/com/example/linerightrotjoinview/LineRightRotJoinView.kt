@@ -65,14 +65,16 @@ fun Canvas.drawLRRJNode(i : Int, scale : Float, paint : Paint) {
 
 class LineRightRotJoinView(ctx : Context) : View(ctx) {
 
-    override fun onDraw(canvas : Canvas) {
+    private val renderer : Renderer = Renderer(this)
 
+    override fun onDraw(canvas : Canvas) {
+        renderer.render(canvas)
     }
 
     override fun onTouchEvent(event : MotionEvent) : Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-
+                renderer.handleTap()
             }
         }
         return true
@@ -196,7 +198,7 @@ class LineRightRotJoinView(ctx : Context) : View(ctx) {
         private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
         private val lrrj : LineRightRotJoin = LineRightRotJoin(0)
 
-        fun render(canvas : Canvas, paint : Paint) {
+        fun render(canvas : Canvas) {
             canvas.drawColor(backColor)
             lrrj.draw(canvas, paint)
             animator.animate {
