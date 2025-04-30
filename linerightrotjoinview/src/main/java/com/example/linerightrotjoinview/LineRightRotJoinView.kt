@@ -189,4 +189,27 @@ class LineRightRotJoinView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineRightRotJoinView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val lrrj : LineRightRotJoin = LineRightRotJoin(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            lrrj.draw(canvas, paint)
+            animator.animate {
+                lrrj.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lrrj.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
