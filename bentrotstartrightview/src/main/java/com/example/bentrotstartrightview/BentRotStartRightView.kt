@@ -208,4 +208,12 @@ class BentRotStartRightView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : BentRotStartRightView {
+            val view : BentRotStartRightView = BentRotStartRightView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
