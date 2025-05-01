@@ -47,6 +47,7 @@
             <option value="$PROJECT_DIR$/bentlineuprightview" />
             <option value="$PROJECT_DIR$/bentperplineleftview" />
             <option value="$PROJECT_DIR$/bentpostrotlineview" />
+            <option value="$PROJECT_DIR$/bentrotstartrightview" />
             <option value="$PROJECT_DIR$/biarccenterrightview" />
             <option value="$PROJECT_DIR$/biarcfromupview" />
             <option value="$PROJECT_DIR$/biarcjoinrotdownview" />
@@ -125,6 +126,7 @@
             <option value="$PROJECT_DIR$/linerighteithersideview" />
             <option value="$PROJECT_DIR$/linerightjoinrotview" />
             <option value="$PROJECT_DIR$/linerightrotdownview" />
+            <option value="$PROJECT_DIR$/linerightrotjoinview" />
             <option value="$PROJECT_DIR$/linerightsweeparcview" />
             <option value="$PROJECT_DIR$/linerighttshapeview" />
             <option value="$PROJECT_DIR$/linerotarcrightview" />
