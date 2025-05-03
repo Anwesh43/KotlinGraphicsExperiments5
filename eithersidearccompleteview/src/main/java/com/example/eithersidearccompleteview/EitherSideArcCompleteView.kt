@@ -188,4 +188,27 @@ class EitherSideArcCompleteView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : EitherSideArcCompleteView) {
+
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val esac : EitherSideArcComplete = EitherSideArcComplete(0)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            esac.draw(canvas, paint)
+            animator.animate {
+                esac.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            esac.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
