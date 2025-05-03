@@ -213,5 +213,13 @@ class MultiFoldRotLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : MultiFoldRotLineView {
+            val view : MultiFoldRotLineView = MultiFoldRotLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
 
