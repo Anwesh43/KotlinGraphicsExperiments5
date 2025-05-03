@@ -188,5 +188,28 @@ class MultiFoldRotLineView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : MultiFoldRotLineView) {
+
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+        private val mfrl : MultiLineRotFold = MultiLineRotFold(0)
+        private val animator : Animator = Animator(view)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            mfrl.draw(canvas, paint)
+            animator.animate {
+                mfrl.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            mfrl.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
 
