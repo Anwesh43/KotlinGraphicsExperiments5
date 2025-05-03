@@ -62,6 +62,7 @@
             <option value="$PROJECT_DIR$/eitherarcfromupview" />
             <option value="$PROJECT_DIR$/eitherlinebentrotview" />
             <option value="$PROJECT_DIR$/eitherlinerotintoview" />
+            <option value="$PROJECT_DIR$/eithersidearccompleteview" />
             <option value="$PROJECT_DIR$/encloselinearcfromleftview" />
             <option value="$PROJECT_DIR$/fourquartercircleview" />
             <option value="$PROJECT_DIR$/fulltohalfarcdownview" />
@@ -152,6 +153,7 @@
             <option value="$PROJECT_DIR$/lineupbentrotdownview" />
             <option value="$PROJECT_DIR$/lineupsqdownbentview" />
             <option value="$PROJECT_DIR$/midarcdownleftview" />
+            <option value="$PROJECT_DIR$/multilinerotfoldview" />
             <option value="$PROJECT_DIR$/multirotdownlineview" />
             <option value="$PROJECT_DIR$/openboxrotdownview" />
             <option value="$PROJECT_DIR$/openlinestrokerotview" />
