@@ -46,7 +46,7 @@ fun Canvas.drawMultiLineRotFold(scale : Float, w : Float, h : Float, paint : Pai
         for (j in 0..(lines - 1)) {
             val dsk : Float = dsc(0).divideScale(j, lines)
             drawXY(0f, 0f) {
-                rotate(-90 + rot * j * (1f - dsc(Math.abs(linesMid - j))))
+                rotate((-90f + rot * j) * (1f - dsc(Math.abs(linesMid - j))))
                 drawLine(0f, 0f, size * dsk, 0f, paint)
             }
         }
