@@ -213,4 +213,12 @@ class EitherSideArcCompleteView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : EitherSideArcCompleteView {
+            val view : EitherSideArcCompleteView = EitherSideArcCompleteView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
