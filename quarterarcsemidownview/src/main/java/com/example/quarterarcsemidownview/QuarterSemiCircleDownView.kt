@@ -125,4 +125,42 @@ class QuarterSemiCircleDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    data class QASDNode(var i : Int = 0, val state : State = State()) {
+
+        private var next : QASDNode? = null
+        private var prev : QASDNode? = null
+
+        init {
+
+        }
+
+        fun addNeighbor() {
+
+        }
+
+        fun draw(canvas : Canvas, paint : Paint) {
+            canvas.drawQASDNode(i, state.scale, paint)
+        }
+
+        fun update(cb : (Float) -> Unit) {
+            state.update(cb)
+        }
+
+        fun startUpdating(cb : () -> Unit) {
+            state.startUpdating(cb)
+        }
+
+        fun getNext(dir : Int, cb : () -> Unit) : QASDNode {
+            var curr : QASDNode? = prev
+            if (dir === 1) {
+                curr = next
+            }
+            if (curr != null) {
+                return curr
+            }
+            cb()
+            return this
+        }
+    }
 }
