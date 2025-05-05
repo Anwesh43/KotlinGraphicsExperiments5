@@ -211,4 +211,12 @@ class QuarterSemiCircleDownView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity: Activity) : QuarterSemiCircleDownView {
+            val view : QuarterSemiCircleDownView = QuarterSemiCircleDownView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
