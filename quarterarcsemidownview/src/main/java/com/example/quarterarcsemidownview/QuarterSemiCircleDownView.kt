@@ -23,7 +23,7 @@ val sizeFactor : Float = 5.9f
 val delay : Long = 20
 val backColor : Int = Color.parseColor("#BDBDBD")
 val rot : Float = 180f
-val sweep : Float = -90f
+val sweep : Float = 90f
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
@@ -45,9 +45,9 @@ fun Canvas.drawQuarterArcSemiDown(scale : Float, w : Float, h : Float, paint : P
         for (j in 0..1) {
             drawXY(0f, 0f) {
                 scale(1f - 2 * j, 1f)
-                rotate(-rot * dsc(2))
-                drawXY(-size, 0f) {
-                    drawArc(RectF(-size / 2, -size / 2, size / 2, size / 2), -sweep, sweep * dsc(j), false, paint)
+                drawXY(-size / 2, 0f) {
+                    rotate(-rot * dsc(2))
+                    drawArc(RectF(-size, -size / 2, 0f, size / 2), -sweep, sweep * dsc(j), false, paint)
                 }
             }
         }
@@ -60,6 +60,7 @@ fun Canvas.drawQASDNode(i : Int, scale : Float, paint : Paint) {
     paint.color = Color.parseColor(colors[i])
     paint.strokeCap = Paint.Cap.ROUND
     paint.strokeWidth = Math.min(w, h) / strokeFactor
+    paint.style = Paint.Style.STROKE
     drawQuarterArcSemiDown(scale, w, h, paint)
 }
 
@@ -134,11 +135,14 @@ class QuarterSemiCircleDownView(ctx : Context) : View(ctx) {
         private var prev : QASDNode? = null
 
         init {
-
+            addNeighbor()
         }
 
         fun addNeighbor() {
-
+            if (i < colors.size - 1) {
+                next = QASDNode(i + 1)
+                next?.prev = this
+            }
         }
 
         fun draw(canvas : Canvas, paint : Paint) {
