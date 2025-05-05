@@ -186,4 +186,27 @@ class QuarterSemiCircleDownView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : QuarterSemiCircleDownView) {
+
+        private val qscd : QuarterSemiCircleDown = QuarterSemiCircleDown(0)
+        private val animator : Animator = Animator(view)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            qscd.draw(canvas, paint)
+            animator.animate {
+                qscd.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            qscd.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
